@@ -1,0 +1,91 @@
+/*Reset Style*/
+* {
+    font-family: sans-serif;
+}
+a{
+    text-decoration:none;
+}
+li{
+    list-style:none;
+}
+img{
+    border-style:none;
+}
+section{
+    margin: 3% 6%;
+}
+
+
+/*header*/
+header{
+    width: 100%;
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    box-shadow: 2px 2px 5px rgb(245 242 232 / 80%);
+}
+.header_wrp{
+    margin: 0 6%;   
+}
+ul{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+li{
+    margin-left: 2%;
+}
+li>a{
+    color: #b3891d;
+    font-weight: 500;
+}
+
+/*  Profile  */
+#profile{
+    margin-top: 8%;
+}
+.profile_wrp{
+    display: flex;
+}
+
+.me{ /*profile photo*/
+    width: 90%;
+    max-width: 450px;
+}
+
+.profile_left{
+    width: 30%;
+    margin-right: 7%;
+}
+.profile_right{
+    width: 60%;
+
+}
+
+
+
+/*  Work  */
+.work_wrp{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+
+.btn{
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #eccb5c;
+    color: #fff;
+    letter-spacing: .2em;
+}
+
+.btn:hover{
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #000;
+    color: #fff;
+    letter-spacing: .5em;
+    transition-duration: .3s;
+}

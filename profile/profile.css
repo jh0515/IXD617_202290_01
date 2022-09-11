@@ -1,0 +1,157 @@
+/*Reset Style*/
+* {
+    font-family: sans-serif;
+}
+a{
+    text-decoration:none;
+}
+li{
+    list-style:none;
+}
+img{
+    border-style:none;
+}
+section{
+    margin: 3% 6%;
+}
+
+
+/* common */
+h2,h3{
+    color: #b3891d;
+}
+h1,p{
+    color: #736856;
+}
+
+h1{
+    font-size: 3em;
+    margin-bottom: 0;
+}
+
+/*header*/
+header{
+    width: 100%;
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    box-shadow: 2px 2px 5px rgb(245 242 232 / 80%);
+}
+.header_wrp{
+    margin: 1% 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+ul{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+li{
+    margin-left: 2%;
+}
+ul>li>a{
+    color: #b3891d;
+    font-weight: 500;
+    margin-left: 2em;
+}
+.logo{
+    width: 6%;
+}
+
+/*  main  */
+#main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8ecd5;
+}
+.main_img{
+    margin: 15% 0;
+    width: 30%;  
+}
+
+
+/*  Profile  */
+#profile{
+    margin: 8% 6%;
+}
+.profile_wrp{
+    display: flex;
+    align-items: center;
+}
+
+.me{ /*profile photo*/
+    width: 90%;
+    max-width: 450px;
+}
+
+.profile_left{
+    width: 30%;
+    margin-right: 7%;
+}
+.profile_right{
+    width: 60%;
+
+}
+
+/*  Work  */
+.work_wrp{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.work_wrp img{
+    width: 80%;
+    opacity: 70%;
+}
+
+.work_wrp img:hover{
+    width: 100%;
+    opacity: 100%;
+    transition-duration: .2s;   
+}
+
+.img_box{
+    width: 40%;
+    margin: 1%;
+    align-items: center;
+    overflow: hidden;   
+}
+.img_box:hover img{
+    transform: scale(1.05);
+    transition-delay: .3s;
+    transition-duration: .3s;
+}
+.img_box > a >img{
+    width: 100%;
+}
+
+/* contact */
+#contact{
+    margin-top: 10%;
+}
+.contact_wrp{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.contact_wrp>div{
+    width: 32%;
+    text-align: center;
+    background-color: #fdf6e9;
+    padding: 3% 0;
+    margin-top: 1%;
+   
+}
+.contact_wrp img:hover{
+    transform: scale(1.1);
+    transition-delay: .2s;
+    transition-duration: .2s;
+
+}
+
+
