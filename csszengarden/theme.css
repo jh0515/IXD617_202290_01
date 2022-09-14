@@ -1,0 +1,90 @@
+*{background-color: antiquewhite;}
+h1,h2,h3{
+    font-family: sans-serif;
+    letter-spacing: 1px;
+}
+
+h1{
+        display: inline;
+        position: relative;
+        animation: moves 30s infinite;
+}
+
+@keyframes moves {
+    0% {left: 0px;background-color: yellow;}
+    50%{left: 1000px;background-color: rgb(255, 170, 0);}
+    100% {left: 500px; background-color: aqua;}
+  }
+
+#zen-intro,
+#zen-supporting,
+.sidebar{
+    width: 75%;
+    margin: 0 auto;
+    margin-top: 3%;
+}
+
+#zen-supporting{
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+}
+
+
+#zen-supporting>div{
+    width: 20%;
+    margin-right: 0.1em;
+}
+
+#zen-supporting>footer{
+    display:flex;
+    flex-direction: column;
+}
+
+.wrapper{
+    display: flex;
+    justify-content: space-between;
+}
+
+a{
+    background-color: rgb(245, 255, 102);
+}
+
+
+a:hover{
+    background-color: #000;
+    color: #fff;
+    letter-spacing: 0.1em;
+    font-size: larger;
+}
+
+@media screen and (max-width: 1000px) {
+    *{background-color:lavender;}
+
+    #zen-supporting {
+      flex-direction: column;
+    }
+    #zen-supporting>div{
+        width: 100%;
+    }
+    #zen-supporting>footer{
+        display: inline;
+    }
+    a{
+        background-color: rgb(241, 147, 255);
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .wrapper {
+      flex-direction: column;
+    }
+}
+
+
+
+
+
+
+
+
