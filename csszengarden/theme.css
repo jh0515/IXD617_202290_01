@@ -1,4 +1,4 @@
-*{background-color: antiquewhite;}
+body{background-image: linear-gradient(to bottom right, #ffef76, #82f9ff);}
 h1,h2,h3{
     font-family: sans-serif;
     letter-spacing: 1px;
@@ -10,11 +10,21 @@ h1{
         animation: moves 30s infinite;
 }
 
+h2:hover{
+    color: blue;
+}
+
+
 @keyframes moves {
     0% {left: 0px;background-color: yellow;}
     50%{left: 1000px;background-color: rgb(255, 170, 0);}
     100% {left: 500px; background-color: aqua;}
-  }
+  } 
+  @keyframes moves2 {
+    0% {left: 0px;background-color: yellow;}
+    50%{left: 350px;background-color: rgb(255, 170, 0);}
+    100% {left: 0px; background-color: aqua;}
+  } 
 
 #zen-intro,
 #zen-supporting,
@@ -73,11 +83,17 @@ a:hover{
     a{
         background-color: rgb(241, 147, 255);
     }
+   
+  
+
 }
 
 @media screen and (max-width: 800px) {
     .wrapper {
       flex-direction: column;
+    }
+    h1{
+        animation: moves2 5s infinite;
     }
 }
 
