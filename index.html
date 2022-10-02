@@ -4,9 +4,158 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Index</title>
+    <title>The Patterns</title>
+    <style>@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600&display=swap');</style>
+    <!-- <link rel="stylesheet" href="lib/css/jquery.mobile.structure-1.4.5.min.css"> -->
+    <link rel="stylesheet" href="src/css/app.css">
+    
+    
+    <script src="lib/js/jquery-2.2.4.min.js"></script>
+    <script src="src/js/app.js"></script>
+    <script src="lib/js/jquery.mobile-1.4.5.min.js"></script>
 </head>
 <body>
-    <h1>Hello, there!</h1>
+
+
+    <section data-role="page" id="signin-page">
+        <div data-role="main">
+            <form>
+                <input type="text">
+                <input type="password">
+                <button class="form-button">Sign In</button>
+            </form>
+            <div>
+                <a href="#map-page" class="form-button">Sign In</a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- MAP PAGE -->
+    <section data-role="page" id="map-page">
+        <div data-role="main">
+            MAP!
+        </div>
+        <footer data-role="footer">
+            <ul>
+                <li><a href="#map-page">Map</a></li>
+                <li><a href="#list-page">List</a></li>
+                <li><a href="#user-profile-page">Profile</a></li>
+            </ul>
+        </footer>
+    </section>
+
+
+    <!-- LIST PAGE -->
+    <section data-role="page" id="list-page">
+        <header data-role="header">
+            <h1> Pattern List</h1>
+        </header>
+        <div data-role="main">
+            <!-- div.patternlist-item*10>a[href="#pattern-profile-page"]>{Pattern $} -->
+            <div class="patternlist-item"><a href="#pattern-profile-page">Pattern 1</a></div>
+            <div class="patternlist-item"><a href="#pattern-profile-page">Pattern 2</a></div>
+            <div class="patternlist-item"><a href="#pattern-profile-page">Pattern 3</a></div>
+            <div class="patternlist-item"><a href="#pattern-profile-page">Pattern 4</a></div>
+            <div class="patternlist-item"><a href="#pattern-profile-page">Pattern 5</a></div>
+            <div class="patternlist-item"><a href="#pattern-profile-page">Pattern 6</a></div>
+            <div class="patternlist-item"><a href="#pattern-profile-page">Pattern 7</a></div>
+            <div class="patternlist-item"><a href="#pattern-profile-page">Pattern 8</a></div>
+            <div class="patternlist-item"><a href="#pattern-profile-page">Pattern 9</a></div>
+            <div class="patternlist-item"><a href="#pattern-profile-page">Pattern 10</a></div>
+        </div>
+        <footer data-role="footer">
+            <ul>
+                <li><a href="#map-page">Map</a></li>
+                <li><a href="#list-page">List</a></li>
+                <li><a href="#user-profile-page">Profile</a></li>
+            </ul>
+        </footer>
+    </section>
+
+
+    <!-- USER PROFILE PAGE -->
+    <section data-role="page" id="user-profile-page">
+        <header data-role="header">
+            <h1>User Profile</h1>
+            <ul>
+                <li><a href="#" data-rel="back">Back</a></li>
+                <li class="flex-stretch"></li>
+                <li><a href="#profile-edit-page">Edit</a></li>
+            </ul>
+        </header>
+        <div data-role="main">
+            User Profile
+        </div>
+        <footer data-role="footer">
+            <ul>
+                <li><a href="#map-page">Map</a></li>
+                <li><a href="#list-page">List</a></li>
+                <li><a href="#user-profile-page">Profile</a></li>
+            </ul>
+        </footer>
+    </section>
+    <!-- <section data-role="page" id="user-profile-page">
+        <div data-role="main">
+            User Profile
+        </div>
+        <footer data-role="footer">
+            <ul>
+                <li><a href="#recent-page">Recent</a></li>
+                <li><a href="#list-page">List</a></li>
+                <li><a href="#user-profile-page">Profile</a></li>
+            </ul>
+        </footer>
+    </section> -->
+  
+    
+    <!-- ** Pattern PROFILE EDIT PAGE -->
+    <section data-role="page" id="profile-edit-page">
+        <header data-role="header">
+            <h1>Pattern Profile Edit</h1>
+                <ul>
+                    <li><a href="#" data-rel="back">Back</a></li>
+                    <li class="flex-stretch"></li>
+                    <!-- <li><a href="#profile-edit-page">Edit</a></li> -->
+                </ul>
+        </header>
+        <div data-role="main">
+                User Profile Edit
+        </div>
+    </section>
+
+
+
+    <!-- Pattern PROFILE PAGE -->
+    <section data-role="page" id="pattern-profile-page">
+        <header data-role="header">
+            <h1>Pattern Profile</h1>
+            <ul>
+                <li><a href="#" data-rel="back">Back</a></li>
+                <li class="flex-stretch"></li>
+                <li><a href="#pattern-edit-page">Edit</a></li>
+            </ul>
+        </header>
+        <div data-role="main">
+            Pattern Profile
+        </div>
+    </section>
+
+    <!-- ** Pattern PROFILE EDIT PAGE -->
+    <section data-role="page" id="pattern-edit-page">
+        <header data-role="header">
+            <h1>Pattern Profile Edit</h1>
+                <ul>
+                    <li><a href="#" data-rel="back">Back</a></li>
+                    <li class="flex-stretch"></li>
+                    <!-- <li><a href="#pattern-edit-page">Edit</a></li> -->
+                </ul>
+        </header>
+        <div data-role="main">
+                Pattern Profile Edit
+        </div>
+    </section>
+    
+
 </body>
 </html>
