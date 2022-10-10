@@ -10,3 +10,8 @@ IXD 617 Advanced Tech: Mobile Web
 ### Assignment Links
 - https://hichloe.co/aau/ixd617/profile/
 - https://hichloe.co/aau/ixd617/csszengarden/
+
+### Example Files
+
+- https://hichloe.co/aau/ixd617/examples/jquery.html
+- https://hichloe.co/aau/ixd617/examples/jquery-mobile.html

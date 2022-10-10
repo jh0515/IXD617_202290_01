@@ -18,6 +18,10 @@
     --color-sub-m: #6f81c0;
     --color-sub-d: #3b4087;
 
+    --color-neutral-l: #f5e7e7;
+    --color-neutral-m: #e6c7c7;
+    --color-neutral-d: #927171;
+
     
     /* --color-main-rgb: 101,186,183;
     --color-main-hue: 178;
@@ -42,10 +46,15 @@ h1{
     font-family:var(--font-header);
 }
 
+h3{
+    color: var(--color-main-d);
+    display: block;
+    margin-bottom: 0;
+}
 
 
 
-/* APP STRUCTURE */
+/* ==== APP STRUCTURE ==== */
 .ui-loader {
     display:none;
 }
@@ -66,7 +75,7 @@ h1{
 [data-role="main"] {
     flex: 1 1 100%;
     position: relative;
-
+    overflow: hidden;
     z-index:1;
 }
 
@@ -84,7 +93,7 @@ h1{
 
 
 
-/* Core Navigation */
+/* ==== Core Navigation ==== */
 [data-role="header"] ul,
 [data-role="footer"] ul {
     list-style-type: none;
@@ -121,17 +130,340 @@ h1{
 
 
 
-/* Basic layout tools */
+/* ==== Basic layout tools ==== */
+
 .display-flex { display:flex; }
 .display-inline-flex { display:inline-flex; }
 .display-block { display:block; }
 .display-inline-block { display:inline-block; }
+
+.flex-align-center{align-items: center;}
+.flex-justify-center{justify-content: center;}
 
 .flex-none { flex:none; }
 .flex-stretch { flex: 1 1 auto; }
 
 .flex-column { flex-direction:column; }
 
+.overscroll {overflow: auto;}
 
 
 
+
+
+/* ==== FORM  - Module 5 OCT 03 ==== */
+.form-control{
+    margin: 1em 0;
+}
+
+#edit-form{
+    padding: 0 1.5em;
+}
+
+
+.form-label{
+    font-size: 0.8em;
+    color: var(--color-main-d);
+    display: block;
+    margin-bottom: 0.5em;
+}
+
+
+.form-input{
+    background: transparent;
+    border-width: 1px;
+    border-color: var(--color-neutral-m);
+    border-style: solid;
+    border-radius: 0.2em;
+    padding: 0.5em 1em;
+    display: inline-block;
+    width: 100%;
+    font: inherit;
+}
+
+input::placeholder{
+    font-size: 0.8em;
+    color: var(--color-neutral-m);
+}
+
+.edit-input::placeholder{
+    font-size: initial;
+    color: initial;
+}
+
+.add-input,
+.add-input::placeholder{
+    font-size: 1em;
+    color: var(--color-neutral-d);
+}
+
+.form-button{
+    background: var(--color-main-m);
+    border-width: 0;
+    border-radius: 0.2em;
+    padding: 0.5em 1em;
+    display: inline-block;
+    width: 100%;
+    font: inherit;
+    text-align: center;
+    color: #fff;
+    /* color: inherit; */
+    
+}
+.form-button:hover{
+    text-decoration: none;
+}
+
+#signin-form,
+#signup-form{
+    padding: 1em;
+}
+.signin-hero{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+
+    /*  */
+    margin-bottom: 2em;
+}
+
+.hero-logo{
+    width: 32vw;
+    aspect-ratio: 1 / 1;
+}
+
+.map{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(../../images/map.png);
+    background-position: center;
+    background-size: cover;
+}
+
+
+
+/* === FLOATER === */
+
+.floater{ position: absolute; }
+.floater.top{ top: 1rem; }
+.floater.right{ right: 1rem; }
+.floater.bottom{ bottom: 1rem; }
+.floater.left{ left: 1rem; }
+
+.btn-circle{
+    border-radius: 2rem;
+    line-height: 3rem;
+    font-size: 2.5em;
+    width: 3rem;
+    height: 3rem;
+    text-align: center;
+    background-color: #fff;
+    display: block;
+    box-shadow: 0.1em 0.1em 1rem rgba(0,0,0,0.2);
+
+}
+
+
+
+/* === MODAL === */
+
+.modal{
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    transition: all 0.3s;
+    opacity: 0;
+    z-index: 10;
+}
+.modal.active{
+    opacity: 1;
+    pointer-events: initial;
+}
+.modal-back{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+
+.modal-back.transparent{
+    background-color: transparent;
+}
+
+
+.modal-popup{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, calc(-50% + 3em));
+    width: 80vw;
+    max-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0.3em;
+    overflow: hidden;
+    transition: all 0.3s;
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+}
+.modal.active .modal-popup{
+    transform: translate(-50%, -50%);
+}
+
+
+
+
+.modal-drawer {
+    position: absolute;
+    display:flex;
+    flex-direction: column;
+    overflow:hidden;
+    transition: all 0.3s;
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+}
+
+.modal-drawer.right,
+.modal-drawer.left {
+    height: 100%;
+    width: 70vw;
+}
+.modal-drawer.right { right: 0; transform: translateX(100%); }
+.modal-drawer.left { left: 0; transform: translateX(-100%); }
+
+.modal-drawer.top,
+.modal-drawer.bottom {
+    height: 40vh;
+    width: 100%;
+}
+.modal-drawer.top { top: 0; transform: translateY(-100%); }
+.modal-drawer.bottom { bottom: 0; transform: translateY(100%); }
+.modal.active .modal-drawer {
+    transform: translate(0);
+}
+
+
+.modal-head,
+.modal-foot{
+    background-color: var(--color-main-l);
+    padding: 0.5em 1em;
+}
+
+.modal-body{
+    background-color: #fff;
+    padding: 1em;
+    flex: 1 1 100%;
+    overflow: auto;
+}
+
+
+
+
+
+
+ 
+/* === PATTERN LIST === */
+
+.patternlist,
+.pattern-add-cotent,
+.pattern-profile-cotent,
+.pattern-add-cotent{
+    height: 100%;
+    position: relative;
+    overflow: auto;
+    padding: 1em;
+}
+
+.patternlist-item{
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+    display: flex;
+}
+
+.item-box{
+   display: flex;
+   align-items: center;
+   justify-content: space-around;
+   width: 100%;
+   margin-bottom: 0.5em;
+   
+}
+.item-box a{
+    width: 45%;  
+}
+
+.item-box img{
+    width: 100%;
+    margin: 0 auto;
+}
+
+
+
+
+/* === PATTERN PROFILE LIST === */
+
+.pattern-img{
+    width: 85%;
+    height: 32vh;
+    display: block;
+    margin-top: 1em;
+    margin-left: auto;
+    margin-right: auto;
+    background-image: url(../../images/polkadot.png);
+    background-position: center;
+    background-size: cover;
+}
+
+
+
+/* === PATTERN PROFILE EDIT === */
+
+#edit-form{
+    width: 96%;
+    margin: 0 auto;
+}
+.edit-content{
+    width: 85%;
+    margin: 0 auto;
+}
+
+.edit-content>div{
+     margin: 2em 0;
+}
+
+.form-control h3{
+    margin: 2em 0 0.4em 0;
+}
+
+
+
+/* === PATTERN ADD EDIT === */
+
+.add-img{
+    width: 85%;
+    height: 32vh;
+    display: block;
+    margin-top: 1em;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: var(--color-neutral-l);
+    background-position: center;
+    background-size: cover;
+}
+/* 
+.pattern-add-cotent,
+.pattern-profile-cotent,
+.pattern-add-cotent{
+    height: 100%;
+    overflow: auto;
+
+} */
