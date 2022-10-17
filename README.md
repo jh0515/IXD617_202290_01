@@ -15,3 +15,7 @@ IXD 617 Advanced Tech: Mobile Web
 
 - https://hichloe.co/aau/ixd617/examples/jquery.html
 - https://hichloe.co/aau/ixd617/examples/jquery-mobile.html
+
+#### Screenshots
+- https://hichloe.co/aau/ixd617/screenshots/midterm/
+
