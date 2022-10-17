@@ -572,3 +572,32 @@ textarea::placeholder{
     display: block;
 }
 
+
+.user-progile-more div { /*popup*/
+    margin-top: 1em;
+}
+.user-progile-more div a{
+    font-size: 1em;
+}
+
+
+
+
+
+/* === onboarding === */
+
+#onboarding-page{
+    background-color: var(--color-main-m);
+    text-align: center;
+}
+
+.onboarding h1{
+    color: #fff;
+    margin-bottom: 2em;
+}
+.onboarding a{
+    background: #fff;
+    padding: 1em 3em;
+    border-radius: 30px;
+    margin: 0.3em;  
+}

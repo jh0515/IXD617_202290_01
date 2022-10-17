@@ -34,8 +34,11 @@ const checkUserId = () => {
         }
     } else {
         // logged in
+        // if (pages.some(p => p === window.location.hash)) {
+        //     $.mobile.navigate("#map-page"); // Default page when user looged in 
+        // }
         if (pages.some(p => p === window.location.hash)) {
-            $.mobile.navigate("#map-page"); // Default page when user looged in 
+            $.mobile.navigate("#onboarding-page"); // Default page when user looged in 
         }
     }
 }
