@@ -11,7 +11,7 @@
     --header-height: 3rem;
 
     --color-main-l: #f7a9b2;
-    --color-main-m: #e96363;
+    --color-main-m: #e96363; 
     --color-main-d: #cc6461;
 
     --color-sub-l: #abbbe0;
@@ -36,20 +36,33 @@ body {
     font-family:var(--font-body);
 }
 
-a {
-    color:var(--color-main-m);
+a{
+    color:var(--color-neutral-d);
     font-weight: bold;
+    font-size: 0.8em;
     text-decoration: none;
 }
 
+
 h1{
     font-family:var(--font-header);
+    color: var(--color-neutral-d);
 }
 
 h3{
     color: var(--color-main-d);
     display: block;
     margin-bottom: 0;
+    font-size: 1em;
+}
+.line{
+    width: 100%;
+    height: 1px;
+    background-color: var(--color-neutral-m);
+    margin: 0.2em 0 0;
+}
+p{
+    margin: 0.5rem 0;
 }
 
 
@@ -86,9 +99,13 @@ h3{
     position:relative;
     overflow:hidden;
     background-color:white;
-    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    box-shadow: 0 0 5px rgba(144, 144, 144, 0.2);
 
     z-index:2;
+}
+
+[data-role="footer"] {
+    height: 3.5rem;
 }
 
 
@@ -107,6 +124,7 @@ h3{
     flex: 1 1 auto;
     text-align: center;
 }
+
 
 [data-role="header"] h1 {
     position:absolute;
@@ -186,6 +204,8 @@ input::placeholder{
     color: var(--color-neutral-m);
 }
 
+
+
 .edit-input::placeholder{
     font-size: initial;
     color: initial;
@@ -194,7 +214,11 @@ input::placeholder{
 .add-input,
 .add-input::placeholder{
     font-size: 1em;
-    color: var(--color-neutral-d);
+    
+} 
+
+textarea::placeholder{
+    color:var(--color-neutral-m);
 }
 
 .form-button{
@@ -263,10 +287,11 @@ input::placeholder{
     text-align: center;
     background-color: #fff;
     display: block;
-    box-shadow: 0.1em 0.1em 1rem rgba(0,0,0,0.2);
-
+    color: var(--color-main-m);
+    /* box-shadow: 0.1em 0.1em 1rem rgba(0,0,0,0.2); */
+    box-shadow: 0.1em 0.1em 1rem rgba(144, 144, 134, 0.2);
+  
 }
-
 
 
 /* === MODAL === */
@@ -318,9 +343,6 @@ input::placeholder{
 .modal.active .modal-popup{
     transform: translate(-50%, -50%);
 }
-
-
-
 
 .modal-drawer {
     position: absolute;
@@ -375,7 +397,8 @@ input::placeholder{
 .patternlist,
 .pattern-add-cotent,
 .pattern-profile-cotent,
-.pattern-add-cotent{
+.user-profile-cotent,
+.user-add-cotent{
     height: 100%;
     position: relative;
     overflow: auto;
@@ -386,7 +409,6 @@ input::placeholder{
     width: 100%;
     text-align: center;
     margin: 0 auto;
-    display: flex;
 }
 
 .item-box{
@@ -398,29 +420,47 @@ input::placeholder{
    
 }
 .item-box a{
-    width: 45%;  
+    width: 45%;
 }
 
 .item-box img{
     width: 100%;
     margin: 0 auto;
+    margin-bottom: 0.5em;
 }
 
+/* === POLKA DOT PAGE === */
 
+#pattern-polkadot-page img{
+    border-radius: 8%;
+}
 
 
 /* === PATTERN PROFILE LIST === */
 
-.pattern-img{
-    width: 85%;
-    height: 32vh;
+.location-img{
+    width: 100%;
+    height: 25vh;
     display: block;
     margin-top: 1em;
     margin-left: auto;
     margin-right: auto;
-    background-image: url(../../images/polkadot.png);
+    background-image: url(../../images/map_small.png);
     background-position: center;
     background-size: cover;
+}
+
+.pattern-img{
+    width: 60%;
+    height: 25vh;
+    display: block;
+    margin-top: 1em;
+    margin-left: auto;
+    margin-right: auto;
+    background-image: url(../../images/icons/polkadot-icon.png);
+    background-position: center;
+    background-size: cover;
+
 }
 
 
@@ -437,18 +477,18 @@ input::placeholder{
 }
 
 .edit-content>div{
-     margin: 2em 0;
+     margin: 1.5em 0;
 }
 
 .form-control h3{
-    margin: 2em 0 0.4em 0;
+    margin: 1.2em 0 0.4em 0;
 }
 
 
 
 /* === PATTERN ADD EDIT === */
 
-.add-img{
+/* .add-img{
     width: 85%;
     height: 32vh;
     display: block;
@@ -458,7 +498,26 @@ input::placeholder{
     background-color: var(--color-neutral-l);
     background-position: center;
     background-size: cover;
+
+} */
+
+.add-img{
+    width: 85%;
+    height: 32vh;
+    margin: 0 auto;
+    margin-top: 0.2em;
+    background-color: var(--color-neutral-l);
+    /* background-position: center;
+    background-size: cover; */
+    text-align: center;
+    line-height: 32vh;
+    font-size: 5rem;
+    color: var(--color-neutral-d);
+    
 }
+
+
+
 /* 
 .pattern-add-cotent,
 .pattern-profile-cotent,
@@ -467,3 +526,49 @@ input::placeholder{
     overflow: auto;
 
 } */
+
+
+
+
+/* === PROFEIL PAGE === */
+
+.profile-img{
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    display: block;
+    margin-top: 1em;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: var(--color-neutral-l);
+    background-image: url(../../images/profile.png);
+    background-position: center;
+    background-size: cover;
+}
+
+
+
+
+[data-role="footer"] .icon {
+    width: 1.3rem;
+    /* height: 1.5rem; */
+    vertical-align: bottom; /* middle */
+}
+
+[data-role="footer"] a {
+    line-height: 1rem;
+    color:var(--color-main-m); /* inherit */
+
+}
+
+.footer-icon{
+    display: block;
+    line-height: 1.9rem; /* 1.7rem; */
+}
+
+.footer-label {
+    line-height: 1.3rem;
+    font-size: 0.6rem;
+    display: block;
+}
+
