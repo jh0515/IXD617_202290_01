@@ -72,10 +72,14 @@
     </section>
 
 
+
+     <!--  =========================== ON BOARDING  ===========================  -->
+
+
     <!-- On Boarding -->
     <section data-role="page" id="onboarding-page">
         <div data-role="main" class="onboarding display-flex flex-column flex-justify-center">
-            <div>
+            <div style="width: 80%; margin: 0 auto;">
                 <h1>Hi there,<br>
                     Do you want to start by adding a pattern?
                 </h1>
@@ -87,8 +91,49 @@
             </div>
          
         </div>
-
     </section>
+
+
+    <!-- PATTERN ADD PAGE FOR ON BOARDING -->
+    <section data-role="page" id="pattern-add-page-onboarding">
+        <header data-role="header">
+            <h1>Pattern Add</h1>
+                <ul>
+                    <li class="flex-stretch"></li>
+                    <li><a href="#map-page" style="font-size: 1.3em;">	✕</a></li>
+                </ul>
+        </header>
+        <div data-role="main">
+            <div class="pattern-add-cotent">
+                <div class="add-img"><a href="#">&plus;</a></div>
+                <form class="form" id="edit-form" data-ajax="false">
+                    <div class="form-control">
+                        <h3>Name</h3>
+                        <input class="form-input add-input" type="text" data-role="none" placeholder="Enter a pattern name">
+                    </div>
+                    <div class="form-control">
+                        <h3>Location</h3>
+                        <input class="form-input add-input" type="text" id="signin-password" data-role="none" placeholder="Choose a location">
+                    </div>
+                    <div class="form-control">
+                        <h3>Date</h3>
+                        <input class="form-input add-input" type="date" id="start" name="trip-start" value="2022-10-10" min="2020-01-01" max="2023-12-31" data-role="none"  style="color:var(--color-neutral-m);">
+                    </div>
+                    <div class="form-control">
+                        <h3>Description</h3>
+                        <textarea class="form-input add-input" name="description" id="" cols="30" rows="20" placeholder=" Enter description"></textarea>
+                    </div>
+                    <div class="form-control">
+                        <input type="submit" class="form-button" value="Save" data-role="none">
+                    </div>
+                </form>  
+            </div>
+                
+        </div>
+    </section>
+
+
+    <!--  =========================== MAP  ===========================  -->
 
 
     <!-- MAP PAGE -->
@@ -136,6 +181,12 @@
     </section>
 
 
+
+
+     <!--  =========================== PATTERN  ===========================  -->
+
+     
+
     <!-- PATTERN LIST PAGE -->
     <section data-role="page" id="list-page">
         <header data-role="header">
@@ -146,14 +197,14 @@
                 <!-- div.patternlist-item*10>a[href="#pattern-profile-page"]>{Pattern $} -->
                 <div class="patternlist-item">
                     <div class="item-box">   
-                        <a href="#pattern-profile-page"><img src="images/icons/polkadot-icon.png" alt="">Polka Dot</a>
-                        <a href="#pattern-polkadot-page"><img src="images/icons/striped-icon.png" alt="">Stripe</a>
+                        <a href="#pattern-profile-page"><img src="images/polkadot.png" alt="">Polka Dot</a>
+                        <a href="#pattern-polkadot-page"><img src="images/stripe.png" alt="">Stripe</a>
                     </div>
-                    <div class="item-box">   
+                    <!-- <div class="item-box">   
                         <a href="#pattern-polkadot-page"><img src="images/icons/checked-icon.png" alt="">Check</a>
                         <a href="#pattern-polkadot-page"><img src="images/icons/diamond-icon.png" alt="">Diamonds</a>
-                    </div>
-                </div>
+                    </div> -->
+                </div> 
             </div>
             <!-- <div class="floater bottom right">
                 <a href="#" class="btn-circle" data-activate="#list-add-modal">&plus;</a>
@@ -204,8 +255,9 @@
         <header data-role="header">
             <h1>Pattern Add</h1>
                 <ul>
-                    <li><a href="#" data-rel="back">Back</a></li>
+                    <!-- <li><a href="#" data-rel="back">Back</a></li> -->
                     <li class="flex-stretch"></li>
+                    <li><a href="#" data-rel="back" style="font-size: 1.3em;">	✕</a></li>
                 </ul>
         </header>
         <div data-role="main">
@@ -236,45 +288,6 @@
              
         </div>
     </section>
-
-    <!-- PATTERN ADD PAGE FOR ON BOARDING -->
-    <section data-role="page" id="pattern-add-page-onboarding">
-        <header data-role="header">
-            <h1>Pattern Add</h1>
-                <ul>
-                    <li class="flex-stretch"></li>
-                    <li><a href="#map-page" style="font-size: 1.3em;">	✕</a></li>
-                </ul>
-        </header>
-        <div data-role="main">
-            <div class="pattern-add-cotent">
-                <div class="add-img"><a href="#">&plus;</a></div>
-                <form class="form" id="edit-form" data-ajax="false">
-                    <div class="form-control">
-                        <h3>Name</h3>
-                        <input class="form-input add-input" type="text" data-role="none" placeholder="Enter a pattern name">
-                    </div>
-                    <div class="form-control">
-                        <h3>Location</h3>
-                        <input class="form-input add-input" type="text" id="signin-password" data-role="none" placeholder="Choose a location">
-                    </div>
-                    <div class="form-control">
-                        <h3>Date</h3>
-                        <input class="form-input add-input" type="date" id="start" name="trip-start" value="2022-10-10" min="2020-01-01" max="2023-12-31" data-role="none"  style="color:var(--color-neutral-m);">
-                    </div>
-                    <div class="form-control">
-                        <h3>Description</h3>
-                        <textarea class="form-input add-input" name="description" id="" cols="30" rows="20" placeholder=" Enter description"></textarea>
-                    </div>
-                    <div class="form-control">
-                        <input type="submit" class="form-button" value="Save" data-role="none">
-                    </div>
-                </form>  
-            </div>
-             
-        </div>
-    </section>
-
 
 
     <!-- Pattern PROFILE PAGE -->
@@ -306,13 +319,12 @@
                     <h3>Location</h3>
                     <p>Market 2nd, San Francisco</p>
                     <p class="line"></p>
-                    <div class="location-img"></div>
+                    <!-- <div class="location-img"></div> -->
                 </div>
             </div> 
         </div>   
     </div>
     </section>
-
 
 
 
@@ -354,6 +366,13 @@
         </div>
     </section>
 
+
+
+
+    <!--  =========================== USER PROFILE ===========================  -->
+
+
+
     <!-- USER PROFILE PAGE -->
     <section data-role="page" id="user-profile-page">
         <header data-role="header">
@@ -366,17 +385,42 @@
         </header>
         <div data-role="main">
             <!-- User Profile -->
-            <div class="user-profile-cotent">
+            <div class="user-img-container">
                 <div class="profile-img"></div>
+                <h1 style="color: #fff; text-align: center;">Jane Lee</h1>
+            </div>
+            <div class="user-profile-cotent">
                 <div class="edit-content">
+                    <div> <!-- style="display: block;"  -->
+                        <!-- <div style="font-size: 0.8em; color: var(--color-neutral-d);">Username</div>
+                        <p class="line"></p> 
+                        <h2 style="margin-top: 0.2em; color: var(--color-main-d);">janelee22</h2>    -->
+                        <h3 style="color: var(--color-main-m);">
+                            <img src="images/icons/profile-icon.png">
+                            Username
+                        </h3> 
+                        <p>janelee22</p>   
+                    </div>
+                    
                     <div>
+                        <h3 style="color: var(--color-main-m);">
+                            <img src="images/icons/email-icon.png">
+                            Email
+                        </h3>
+                        <p>jlee@gmail.com</p>   
+                    </div>
+                  
+                    <div>
+                        <h3 style="color: var(--color-main-m);">
+                            <img src="images/icons/map-icon.png" style="width: 0.8em; ">
+                            Location
+                        </h3>
+                        <p>San Francisco, CA</p>   
+                    </div>
+                    
+                    <!-- <div>
                         <h3>Name</h3>
                         <p>Jane Lee</p>
-                        <p class="line"></p>
-                    </div>
-                    <div>
-                        <h3>Username</h3>
-                        <p>user01</p>
                         <p class="line"></p>
                     </div>
                     <div>
@@ -386,9 +430,9 @@
                     </div>
                     <div>
                         <h3>Location</h3>
-                        <p>San Francisco,CA</p>
+                        <p>San Francisco, CA</p>
                         <p class="line"></p>
-                    </div>
+                    </div> -->   
                 </div> 
                 <!-- <div><a href="#" class="js-logout">Log out</a></div> -->
             </div>    
@@ -413,7 +457,7 @@
                         <span class="footer-label">PROFILE</span>
                     </a>
                 </li>
-            </ul>
+            </ul> 
         </footer>
         <div id="user-profile-modal" class="modal">
             <div class="modal-back" data-deactivate="#user-profile-modal"></div>
@@ -431,6 +475,10 @@
         </div>
     </section>
 
+
+
+
+
     <!-- ** USER PROFILE EDIT PAGE -->
     <section data-role="page" id="profile-edit-page">
         <header data-role="header">
@@ -439,12 +487,44 @@
                     <!-- <li><a href="#" data-rel="back">Back</a></li> -->
                     <li><a href="#user-profile-page">Back</a></li>
                     <li class="flex-stretch"></li>
+                    <!-- <li> <input type="submit" class="save-profile" value="Save" data-role="none"></li> -->
                     <!-- <li><a href="#profile-edit-page">Edit</a></li> -->
                 </ul>
         </header>
         <div data-role="main">
                 <!-- User Profile Edit -->
-                <div class="user-add-cotent">
+                <!-- <div class="user-img-container">
+                    <div class="profile-img"></div>
+                    <h1 style="color: #fff; text-align: center;">Jane Lee</h1>
+                </div> -->
+                <div class="user-edit-page">
+                    <div class="user-img-container">
+                        <div class="profile-img"></div>
+                        <h1 style="color: #fff; text-align: center;">Jane Lee</h1>
+                    </div>
+                    <form class="form" id="edit-form" data-ajax="false">
+                        <div class="form-control">
+                            <h3>Name</h3>
+                            <input class="form-input edit-input" type="text" data-role="none" placeholder="Jane Lee">
+                        </div>
+                        <div class="form-control">
+                            <h3>Username</h3>
+                            <input class="form-input edit-input" type="text" data-role="none" placeholder="janlee22">
+                        </div>
+                        <div class="form-control">
+                            <h3>Email</h3>
+                            <input class="form-input edit-input" type="text" data-role="none" placeholder="jlee@gmail.com">
+                        </div>
+                        <div class="form-control">
+                            <h3>Location</h3>
+                            <input class="form-input edit-input" type="text" id="signin-password" data-role="none" placeholder="San Francisco,CA">
+                        </div>
+                        <div class="form-control">
+                            <input type="submit" class="form-button" value="Save" data-role="none" style="appearance: none;">
+                        </div>
+                    </form> 
+                </div>        
+                <!-- <div class="user-add-cotent">
                     <div class="profile-img"></div>
                     <form class="form" id="edit-form" data-ajax="false">
                         <div class="form-control">
@@ -453,7 +533,7 @@
                         </div>
                         <div class="form-control">
                             <h3>Username</h3>
-                            <input class="form-input edit-input" type="text" data-role="none" placeholder="user01">
+                            <input class="form-input edit-input" type="text" data-role="none" placeholder="janelee22">
                         </div>
                         <div class="form-control">
                             <h3>Email</h3>
@@ -467,7 +547,7 @@
                             <input type="submit" class="form-button" value="Save" data-role="none">
                         </div>
                     </form> 
-                </div>        
+                </div>         -->
         </div>
     </section>
     
