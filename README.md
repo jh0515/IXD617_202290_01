@@ -10,6 +10,7 @@ IXD 617 Advanced Tech: Mobile Web
 ### Assignment Links
 - https://hichloe.co/aau/ixd617/profile/
 - https://hichloe.co/aau/ixd617/csszengarden/
+- https://hichloe.co/aau/ixd617/data/generator.html
 
 ### Example Files
 
