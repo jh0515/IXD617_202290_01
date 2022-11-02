@@ -10,8 +10,8 @@
     <link rel="stylesheet" href="src/css/app.css">
 
     <script src="lib/js/jquery-2.2.4.min.js"></script>
-    <script src="src/js/app.js"></script>
-    <script src="src/js/signin.js"></script>
+    <script src="src/js/app.js" type="module"></script>
+    <!-- <script src="src/js/signin.js"></script>  -->
     <script src="lib/js/jquery.mobile-1.4.5.min.js"></script>
 </head>
 <body>
@@ -106,22 +106,23 @@
         <div data-role="main">
             <div class="pattern-add-cotent">
                 <div class="add-img"><a href="#">&plus;</a></div>
-                <form class="form" id="edit-form" data-ajax="false">
+                <form class="form" id="onboarding-edit-form" data-ajax="false">
                     <div class="form-control">
                         <h3>Name</h3>
                         <input class="form-input add-input" type="text" data-role="none" placeholder="Enter a pattern name">
                     </div>
                     <div class="form-control">
                         <h3>Location</h3>
-                        <input class="form-input add-input" type="text" id="signin-password" data-role="none" placeholder="Choose a location">
+                        <!-- <input class="form-input add-input" type="text" id="signin-password" data-role="none" placeholder="Choose a location"> -->
+                        <input class="form-input add-input" type="text" data-role="none" placeholder="Choose a location">
                     </div>
                     <div class="form-control">
                         <h3>Date</h3>
-                        <input class="form-input add-input" type="date" id="start" name="trip-start" value="2022-10-10" min="2020-01-01" max="2023-12-31" data-role="none"  style="color:var(--color-neutral-m);">
+                        <input class="form-input add-input" type="date"  name="trip-start" value="2022-10-10" min="2020-01-01" max="2023-12-31" data-role="none"  style="color:var(--color-neutral-m);">
                     </div>
                     <div class="form-control">
                         <h3>Description</h3>
-                        <textarea class="form-input add-input" name="description" id="" cols="30" rows="20" placeholder=" Enter description"></textarea>
+                        <textarea class="form-input add-input" name="description" cols="30" rows="20" placeholder=" Enter description"></textarea>
                     </div>
                     <div class="form-control">
                         <input type="submit" class="form-button" value="Save" data-role="none">
@@ -270,15 +271,16 @@
                     </div>
                     <div class="form-control">
                         <h3>Location</h3>
-                        <input class="form-input add-input" type="text" id="signin-password" data-role="none" placeholder="Choose a location">
+                        <input class="form-input add-input" type="text" data-role="none" placeholder="Choose a location">
+                        <!-- <input class="form-input add-input" type="text" id="signin-password" data-role="none" placeholder="Choose a location"> -->
                     </div>
                     <div class="form-control">
                         <h3>Date</h3>
-                        <input class="form-input add-input" type="date" id="start" name="trip-start" value="2022-10-10" min="2020-01-01" max="2023-12-31" data-role="none"  style="color:var(--color-neutral-m);">
+                        <input class="form-input add-input" type="date" name="trip-start" value="2022-10-10" min="2020-01-01" max="2023-12-31" data-role="none"  style="color:var(--color-neutral-m);">
                     </div>
                     <div class="form-control">
                         <h3>Description</h3>
-                        <textarea class="form-input add-input" name="description" id="" cols="30" rows="20" placeholder=" Enter description"></textarea>
+                        <textarea class="form-input add-input" name="description" cols="30" rows="20" placeholder=" Enter description"></textarea>
                     </div>
                     <div class="form-control">
                         <input type="submit" class="form-button" value="Save" data-role="none">
@@ -340,22 +342,23 @@
         <div data-role="main">
             <div class="pattern-add-cotent">
                 <div class="pattern-img"></div>
-                <form class="form" id="edit-form" data-ajax="false">
+                <form class="form" id="pattern-edit-form" data-ajax="false">
                     <div class="form-control">
                         <h3>Name</h3>
                         <input class="form-input edit-input" type="text" data-role="none" placeholder="Polka Dot">
                     </div>
                     <div class="form-control">
                         <h3>Date</h3>
-                        <input class="form-input edit-input" type="date" id="start" name="trip-start" value="2022-10-10" min="2020-01-01" max="2023-12-31" data-role="none">
+                        <input class="form-input edit-input" type="date"  name="trip-start" value="2022-10-10" min="2020-01-01" max="2023-12-31" data-role="none">
                     </div>
                     <div class="form-control">
                         <h3>Description</h3>
-                        <textarea class="form-input" name="description" id="" cols="30" rows="20">I saw polkadot pattern in a tactile paving!</textarea>
+                        <textarea class="form-input" name="description" cols="30" rows="20">I saw polkadot pattern in a tactile paving!</textarea>
                     </div>
                     <div class="form-control">
                         <h3>Location</h3>
-                        <input class="form-input edit-input" type="text" id="signin-password" data-role="none" placeholder="Market 2nd, San Francisco">
+                        <input class="form-input edit-input" type="text" data-role="none" placeholder="Market 2nd, San Francisco">
+                        <!-- <input class="form-input edit-input" type="text" id="signin-password" data-role="none" placeholder="Market 2nd, San Francisco"> -->
                     </div>
                     <div class="form-control">
                         <input type="submit" class="form-button" value="Save" data-role="none">
@@ -502,7 +505,8 @@
                         <div class="profile-img"></div>
                         <h1 style="color: #fff; text-align: center;">Jane Lee</h1>
                     </div>
-                    <form class="form" id="edit-form" data-ajax="false">
+                    
+                    <form class="form" id="profile-edit-form" data-ajax="false">
                         <div class="form-control">
                             <h3>Name</h3>
                             <input class="form-input edit-input" type="text" data-role="none" placeholder="Jane Lee">
@@ -517,7 +521,8 @@
                         </div>
                         <div class="form-control">
                             <h3>Location</h3>
-                            <input class="form-input edit-input" type="text" id="signin-password" data-role="none" placeholder="San Francisco,CA">
+                            <input class="form-input edit-input" type="text" data-role="none" placeholder="San Francisco,CA">
+                            <!-- <input class="form-input edit-input" type="text" id="signin-password" data-role="none" placeholder="San Francisco,CA"> -->
                         </div>
                         <div class="form-control">
                             <input type="submit" class="form-button" value="Save" data-role="none" style="appearance: none;">
@@ -526,7 +531,7 @@
                 </div>        
                 <!-- <div class="user-add-cotent">
                     <div class="profile-img"></div>
-                    <form class="form" id="edit-form" data-ajax="false">
+                    <form class="form" id="profile-edit-form" data-ajax="false">
                         <div class="form-control">
                             <h3>Name</h3>
                             <input class="form-input edit-input" type="text" data-role="none" placeholder="Jane Lee">
