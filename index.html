@@ -13,10 +13,12 @@
     <script src="src/js/app.js" type="module"></script>
     <!-- <script src="src/js/signin.js"></script>  -->
     <script src="lib/js/jquery.mobile-1.4.5.min.js"></script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOeLKFpPkpAriVcaadG8daqqD35VnJ0Pc" defer></script>
+
+    <!-- AIzaSyCOeLKFpPkpAriVcaadG8daqqD35VnJ0Pc -->
 </head>
 <body>
-
-
     <!-- SIGN IN PAGE -->
     <section data-role="page" id="signin-page">
         <div data-role="main" class="display-flex flex-column">
@@ -194,19 +196,14 @@
             <h1> Pattern List</h1>
         </header>
         <div data-role="main">
-            <div class="patternlist">
-                <!-- div.patternlist-item*10>a[href="#pattern-profile-page"]>{Pattern $} -->
-                <div class="patternlist-item">
+            <div class="patternlist"></div>
+                  <!-- div.patternlist-item*10>a[href="#pattern-profile-page"]>{Pattern $} -->
+                <!-- <div class="patternlist-item">
                     <div class="item-box">   
                         <a href="#pattern-profile-page"><img src="images/polkadot.png" alt="">Polka Dot</a>
                         <a href="#pattern-polkadot-page"><img src="images/stripe.png" alt="">Stripe</a>
                     </div>
-                    <!-- <div class="item-box">   
-                        <a href="#pattern-polkadot-page"><img src="images/icons/checked-icon.png" alt="">Check</a>
-                        <a href="#pattern-polkadot-page"><img src="images/icons/diamond-icon.png" alt="">Diamonds</a>
-                    </div> -->
-                </div> 
-            </div>
+                </div>  -->
             <!-- <div class="floater bottom right">
                 <a href="#" class="btn-circle" data-activate="#list-add-modal">&plus;</a>
             </div> -->
@@ -294,6 +291,65 @@
 
     <!-- Pattern PROFILE PAGE -->
     <section data-role="page" id="pattern-profile-page">
+        <header data-role="header">
+            <h1></h1>
+            <ul>
+                <li><a href="#" data-rel="back">Back</a></li>
+                <li class="flex-stretch"></li>
+                <li><a href="#pattern-edit-page">Edit</a></li>
+            </ul>
+        </header>
+        <div data-role="main">
+
+            <div class="pattern-profile-bottom">
+                <div class="pattern-profile-section section-description active"></div>
+                <div class="pattern-profile-section section-map">
+                    <div class="map"></div>
+                </div>
+                    
+            </div>
+
+            <div class="pattern-profile-nav">
+                <div class="nav-link active">Photo</div>
+                <div class="nav-link">Map</div>
+            </div>
+
+            <div class="pattern-profile-top" style="display: flex; justify-content: space-between; align-items: center;" ></div>
+        </div>
+    </section>
+
+
+    <!-- 원래코드
+            <section data-role="page" id="pattern-profile-page">
+        <header data-role="header">
+            <h1></h1>
+            <ul>
+                <li><a href="#" data-rel="back">Back</a></li>
+                <li class="flex-stretch"></li>
+                <li><a href="#pattern-edit-page">Edit</a></li>
+            </ul>
+        </header>
+        <div data-role="main">
+            <div class="pattern-profile-top"></div>
+            <div class="pattern-profile-nav">
+                <div class="nav-link active">Map</div>
+                <div class="nav-link">Description</div>
+            </div>
+            <div class="pattern-profile-bottom">
+                <div class="pattern-profile-section section-map active">
+                    <div class="map"></div>
+                </div>
+                <div class="pattern-profile-section section-description"></div>
+            </div>
+        </div>
+    </section>
+
+     -->
+
+
+     <!-- OLD DESIGN FOR Pattern PROFILE PAGE 
+    
+        <section data-role="page" id="pattern-profile-page">
     <header data-role="header">
         <h1>Polka Dot</h1>
         <ul>
@@ -303,7 +359,6 @@
         </ul>
     </header>
     <div data-role="main">
-        <!-- Pattern Profile -->
         <div class="pattern-profile-cotent">
             <div class="pattern-img"></div>
             <div class="edit-content">
@@ -321,12 +376,17 @@
                     <h3>Location</h3>
                     <p>Market 2nd, San Francisco</p>
                     <p class="line"></p>
-                    <!-- <div class="location-img"></div> -->
                 </div>
             </div> 
         </div>   
     </div>
     </section>
+
+    -->
+
+
+   
+
 
 
 
@@ -373,31 +433,71 @@
 
 
     <!--  =========================== USER PROFILE ===========================  -->
-
-
-
-    <!-- USER PROFILE PAGE -->
     <section data-role="page" id="user-profile-page">
         <header data-role="header">
             <h1>User Profile</h1>
             <ul>
-                <!-- <li><a href="#" data-rel="back" style="font-size: 2em;">Back &larr;</a></li> -->
+                <li class="flex-stretch"></li>
+                <div><a href="#" data-activate="#user-profile-modal">More</a></div>
+            </ul>
+        </header>
+        <div data-role="main"></div> <!-- parts.js (line 15) -->
+        <footer data-role="footer">
+            <ul>
+                <li>
+                    <a href="#map-page">
+                        <span class="footer-icon"><img src="images/icons/map-icon.png" alt="" class="icon"></span>
+                        <span class="footer-label">MAP</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#list-page">
+                        <span class="footer-icon"><img src="images/icons/list-icon.png" alt="" class="icon"></span>
+                        <span class="footer-label">LIST</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#user-profile-page">
+                        <span class="footer-icon"><img src="images/icons/profile-icon.png" alt="" class="icon"></span>
+                        <span class="footer-label">PROFILE</span>
+                    </a>
+                </li>
+            </ul> 
+        </footer>
+        <div id="user-profile-modal" class="modal">
+            <div class="modal-back" data-deactivate="#user-profile-modal"></div>
+            <div class="modal-drawer bottom">
+               
+                <div class="modal-body">
+                    <div class="user-progile-more">
+                        <h3>User Profile</h3>
+                        <p class="line" style="margin-bottom: 1.5em;"></p>
+                        <div><a href="#profile-edit-page" > Edit Profile</a></div>
+                        <div><a href="#" class="js-logout"> Log out</a></div>   
+                    </div>                  
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- USER PROFILE PAGE  OLD CODE 
+    <section data-role="page" id="user-profile-page">
+        <header data-role="header">
+            <h1>User Profile</h1>
+            <ul>
                 <li class="flex-stretch"></li>
                 <div><a href="#" data-activate="#user-profile-modal">More</a></div>
             </ul>
         </header>
         <div data-role="main">
-            <!-- User Profile -->
             <div class="user-img-container">
                 <div class="profile-img"></div>
                 <h1 style="color: #fff; text-align: center;">Jane Lee</h1>
             </div>
             <div class="user-profile-cotent">
                 <div class="edit-content">
-                    <div> <!-- style="display: block;"  -->
-                        <!-- <div style="font-size: 0.8em; color: var(--color-neutral-d);">Username</div>
-                        <p class="line"></p> 
-                        <h2 style="margin-top: 0.2em; color: var(--color-main-d);">janelee22</h2>    -->
+                    <div> 
                         <h3 style="color: var(--color-main-m);">
                             <img src="images/icons/profile-icon.png">
                             Username
@@ -419,25 +519,8 @@
                             Location
                         </h3>
                         <p>San Francisco, CA</p>   
-                    </div>
-                    
-                    <!-- <div>
-                        <h3>Name</h3>
-                        <p>Jane Lee</p>
-                        <p class="line"></p>
-                    </div>
-                    <div>
-                        <h3>Email</h3>
-                        <p>jlee@gmail.com</p>
-                        <p class="line"></p>
-                    </div>
-                    <div>
-                        <h3>Location</h3>
-                        <p>San Francisco, CA</p>
-                        <p class="line"></p>
-                    </div> -->   
+                    </div> 
                 </div> 
-                <!-- <div><a href="#" class="js-logout">Log out</a></div> -->
             </div>    
         </div>
         <footer data-role="footer">
@@ -478,7 +561,7 @@
         </div>
     </section>
 
-
+ -->
 
 
 

@@ -9,6 +9,7 @@ $(() => {
     $(document)
 
     .on("pagecontainerbeforeshow", function(event, ui){
+
         
         /* PAGE ROUTES  M08 14:11-23 */
         switch(ui.toPage[0].id){
@@ -31,6 +32,42 @@ $(() => {
         checkUserId();
     })
 
+    .on("click", ".pattern-jump", function(e){
+        let id = $(this).data("id");
+
+        sessionStorage.patternId =id;
+
+    })
+
+    .on("click", ".location-jump", function(e){  //M08 15:43
+        let id = $(this).data("id");
+
+        sessionStorage.locationId =id;
+
+    })
+
+    // PATTERN PROFILE PAGE
+    .on("click", ".nav-link", function(e) {
+        let id = $(this).index();
+        $(this).parent().prev().children().eq(id)
+            .addClass("active")
+            .siblings().removeClass("active");
+        $(this).addClass("active")
+            .siblings().removeClass("active");
+    })
+
+
+    // PATTERN PROFILE PAGE
+    // .on("click", ".nav-link", function(e) {
+    //     let id = $(this).index();
+    //     $(this).parent().next().children().eq(id)
+    //         .addClass("active")
+    //         .siblings().removeClass("active");
+    //     $(this).addClass("active")
+    //         .siblings().removeClass("active");
+    // })   
+
+    
 
     // ACTIVATE TOOLS
     .on("click","[data-activate]",function(e){

@@ -10,3 +10,21 @@ export const query = (options) => {
         else return d;
     });
 }
+
+// Curried function
+export const templater = (f) => (a) => 
+    (Array.isArray(a) ? a : [a])
+    .reduce((r,o,i,a) => r+f(o,i,a), '');
+
+
+
+
+//M09 14:39
+export const checkData = (exterior_check) => new Promise((resolve,reject)=>{
+    let timeout = 0;
+    const interior_check = () => {
+        timeout++; if(timeout>200) return reject();
+        return exterior_check() ? resolve() : setTimeout(interior_check, 10);
+    }
+    interior_check();
+});
