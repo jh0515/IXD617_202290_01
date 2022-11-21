@@ -1,4 +1,5 @@
-import { ListPage, MapPage, PatternProfilePage, UserProfilePage } from "./routes.js";
+import { checkUserEditForm } from "./forms.js";
+import { ChooseLocationPage, ListPage, MapPage, PatternEditPage, PatternProfilePage, UserEditPage, UserProfilePage } from "./routes.js";
 import { checkSigninForm, checkUserId } from "./signin.js";
 
 // Document Ready
@@ -15,8 +16,14 @@ $(() => {
         switch(ui.toPage[0].id){
             case "map-page": MapPage(); break;
             case "list-page": ListPage(); break;
+
             case "user-profile-page": UserProfilePage(); break;
+            case "user-edit-page" : UserEditPage(); break;
+
             case "pattern-profile-page": PatternProfilePage(); break;
+            case "pattern-edit-page" : PatternEditPage(); break;
+
+            case "choose-location-page": ChooseLocationPage(); break;
 
         }
     })
@@ -26,6 +33,14 @@ $(() => {
         e.preventDefault();
         checkSigninForm();
     })
+
+    .on("submit", "#user-edit-form", function(e) {
+        e.preventDefault();
+        checkUserEditForm();
+    })
+
+
+
 
     .on("click", ".js-logout", function(e) {
         sessionStorage.removeItem("userId");
@@ -45,6 +60,13 @@ $(() => {
         sessionStorage.locationId =id;
 
     })
+
+    .on("click", ".js-submit-user-edit-form", function(e) {
+        checkUserEditForm();
+    })
+
+
+
 
     // PATTERN PROFILE PAGE
     .on("click", ".nav-link", function(e) {

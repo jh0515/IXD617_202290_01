@@ -171,6 +171,8 @@ p{
 
 .overscroll {overflow: auto;}
 
+.padded{ padding: 1em;}
+.full{height: 100%;}
 
 
 
@@ -360,6 +362,16 @@ textarea::placeholder{
     overflow:hidden;
     transition: all 0.3s;
     box-shadow: 0 0 5px rgba(0,0,0,0.3);
+}
+
+.modal-drawer.island {
+    box-shadow: initial;
+}
+.modal-drawer.island .modal-body {
+    margin:1em;
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+    border-radius:1em;
+
 }
 
 .modal-drawer.right,
@@ -737,4 +749,24 @@ textarea::placeholder{
     top: 50%;
     left: 50%;  
     transform: translate(-50%, -50%);
+}
+
+
+
+/* part.js line 50  sytle for "makePatternMapDescription" */
+
+.pattern-map-description {
+    display:flex;
+}
+.pattern-map-image img{
+    width:80px;
+    aspect-ratio: 1 / 1;
+    vertical-align: middle;
+    object-fit:cover;
+}
+.pattern-map-body {
+    padding: 1em;
+}
+.pattern-map-body h1 {
+    margin:0;
 }

@@ -1,6 +1,6 @@
 import { query } from "./function.js"
 import { makeMap, makeMarkers } from "./maps.js";
-import { makePatternlist, makePatternProfileDescription, makeUserProfilePage } from "./parts.js";
+import { makeEditPatternForm, makeEditUserForm, makePatternlist, makePatternMapDescription, makePatternProfileDescription, makeUserProfilePage } from "./parts.js";
 
 //export const MapPage = async() => {}
 
@@ -43,6 +43,31 @@ export const MapPage = async() => {
 
     let map_el = await makeMap("#map-page .map");
     makeMarkers(map_el,valid_patterns);
+
+    map_el.data("markers").forEach((m,i)=>{
+        // console.log(m)pattern
+        m.addListener("click",function(e){
+            // console.log(e)
+            let pattern = valid_patterns[i];
+            // console.log(pattern)
+
+            // Just Navigate
+            //sessionStorage.patternId = pattern.pattern_id;
+            //$.mobile.navigate("#pattern-profile-page")
+
+            // Open Google InfoWindow
+            //let {map,infoWindow} = map_el.data();
+            //infoWindow.open(map, m);
+            //infoWindow.setContent(makePatternMapDescription(pattern)); //M11 14:50
+
+            $("#map-recent-modal")
+                .addClass("active")
+                .find(".modal-body")
+                .html(makePatternMapDescription(pattern))
+
+            
+        })
+    });
 }
 
 export const ListPage = async() => {
@@ -90,3 +115,33 @@ export const PatternProfilePage = async() => {
     makeMarkers(map_el,locations);
 }
 
+
+export const ChooseLocationPage = async() => {
+    let map_el = await makeMap("#choose-location-page .map");
+    makeMarkers(map_el,[]);
+
+}
+
+
+export const UserEditPage = async() => {
+    let {result:users} = await query({
+        type:"user_by_id",
+        params:[sessionStorage.userId]
+    });
+    let [user] = users;
+
+    $("#user-edit-page .body").html(makeEditUserForm(user));
+}
+
+export const PatternEditPage = async() => {
+    let {result:patterns} = await query({
+        type:"pattern_by_id",
+        params:[sessionStorage.patternId]
+    });
+    let [pattern] = patterns;
+
+    $("#pattern-edit-page .body").html(makeEditPatternForm({
+        pattern,
+        namespace:'pattern-edit'
+    }));
+}

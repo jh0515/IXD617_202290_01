@@ -47,4 +47,84 @@ export const makePatternProfileDescription = ({img,name,type,color,description})
 
 `
 
-//<img src="${img}" style="width:50%; border-radius:50%; display:block;">
+export const makePatternMapDescription = ({name,type,color,img}) => {
+    return `<div class="pattern-map-description display-flex">
+        <div class="pattern-map-image">
+            <img src="${img}" />
+        </div>
+        <div class="pattern-map-body">
+            <h1>${name}</h1>
+            <div>${type}</div>
+            <div>${color}</div>
+        </div>
+    </div>`;
+}
+
+
+export const makeEditUserForm = ({name,username,email}) => {
+    
+    return `<div class="form-control">
+        <label class="form-label" for="user-edit-username">Username</label>
+        <input class="form-input" type="text" id="user-edit-username" data-role="none" placeholder="Type your Username" value="${username}">
+    </div>
+    <div class="form-control">
+        <label class="form-label" for="user-edit-name">Name</label>
+        <input class="form-input" type="text" id="user-edit-name" data-role="none" placeholder="Type your Name" value="${name}">
+    </div>
+    <div class="form-control">
+        <label class="form-label" for="user-edit-email">Email</label>
+        <input class="form-input" type="text" id="user-edit-email" data-role="none" placeholder="Type your Email" value="${email}">
+    </div>`
+}
+
+
+const FormControlInput = ({namespace,name,displayname,type,placeholder,value}) => {
+    return `<div class="form-control">
+        <label class="form-label" for="${namespace}-${name}">${displayname}</label>
+        <input class="form-input" type="${type}" id="${namespace}-${name}" data-role="none" placeholder="${placeholder}" value="${value}">
+    </div>`
+}
+const FormControlTextarea = ({namespace,name,displayname,placeholder,value}) => {
+    return `<div class="form-control">
+        <label class="form-label" for="${namespace}-${name}">${displayname}</label>
+        <textarea class="form-input" id="${namespace}-${name}" data-role="none" placeholder="${placeholder}">${value}</textarea>
+    </div>`
+}
+
+
+export const makeEditPatternForm = ({pattern,namespace}) => {
+    return `
+    ${FormControlInput({
+        namespace,
+        name: "name",
+        displayname: "Name",
+        type: "text",
+        placeholder: "Type a Name",
+        value: pattern.name
+    })}
+    ${FormControlInput({
+        namespace,
+        name: "type",
+        displayname: "Type",
+        type: "text",
+        placeholder: "Type a Type",
+        value: pattern.type
+    })}
+    ${FormControlInput({
+        namespace,
+        name: "color",
+        displayname: "Color",
+        type: "text",
+        placeholder: "Type a color",
+        value: pattern.color
+    })}
+    ${FormControlTextarea({
+        namespace,
+        name: "description",
+        displayname: "Description",
+        placeholder: "Type a Description",
+        value: pattern.description
+    })}
+    `;
+}
+
