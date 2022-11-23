@@ -53,18 +53,22 @@
             <form class="form" id="signup-form" data-ajax="false">
                 <div class="form-control">
                     <label class="form-label" for="signup-username">Username</label>
-                    <input class="form-input" type="text" id="signup-username" data-role="none" placeholder="Type a Username">
+                    <input class="form-input" type="text" id="signup-username" data-role="none" placeholder="Type a Username" required>
+                </div>
+                <div class="form-control">
+                    <label class="form-label" for="signup-email">Email</label>
+                    <input class="form-input" type="email" id="signup-email" data-role="none" placeholder="Type your Email" required>
                 </div>
                 <div class="form-control">
                     <label class="form-label" for="signup-password">Password</label>
-                    <input class="form-input" type="password" id="signup-password" data-role="none" placeholder="Type a Password">
+                    <input class="form-input" type="password" id="signup-password" data-role="none" placeholder="Type a Password" required>
                 </div>
                 <div class="form-control">
                     <label class="form-label" for="signup-confirm">Password</label>
-                    <input class="form-input" type="password" id="signup-confirm" data-role="none" placeholder="Confirm Password">
+                    <input class="form-input" type="password" id="signup-confirm" data-role="none" placeholder="Confirm Password" required>
                 </div>
                 <div class="form-control">
-                    <input type="submit" class="form-button" value="Sign Up" data-role="none" style="appearance: none;">
+                    <input type="submit" class="form-button" value="Sign Up" data-role="none" style="appearance: none;" required>
                 </div>
                 <div class="form-control" style="text-align:center; font-size: 0.8em; ">
                     Already have an account? <a href="#signin-page">Sign In!</a>
@@ -218,7 +222,8 @@
                 <a href="#" class="btn-circle" data-activate="#list-add-modal">&plus;</a>
             </div> -->
             <div class="floater bottom right">
-                <a href="#choose-pattern-page" class="btn-circle">&plus;</a>
+                <!-- <a href="#choose-pattern-page" class="btn-circle">&plus;</a> -->
+                <a href="#pattern-add-page" class="btn-circle">&plus;</a>
             </div>
         </div>
 
@@ -271,6 +276,8 @@
             </ul>
         </header>
         <div data-role="main">
+            <input type="hidden" id="location-pattern-id">
+            <input type="hidden" id="location-back" value="-2">
             form for choose Pattern
         </div>
     </section>
@@ -286,22 +293,26 @@
             </ul>
         </header>
         <div data-role="main">
+            <input type="hidden" id="location-lat">
+            <input type="hidden" id="location-lng">
             <div class="map"></div>
         </div>
     </section>
 
-    <!-- CHOOSE LOCATION PAGE -->
+    <!-- CHOOSE description PAGE -->
     <section data-role="page" id="choose-description-page">
         <header data-role="header">
             <h1>Description of Pattern</h1>
             <ul>
                 <li><a href="#" data-rel="back">Back</a></li>
                 <li class="flex-stretch"></li>
-                <li><a href="#list-page">Save</a></li>
+                <li><a href="#" class="js-submit-location-add-form">Save</a></li>
             </ul>
         </header>
         <div data-role="main">
-            for for description
+            <div class="padded">
+                <textarea class="form-input" id="location-description" rows="10"></textarea>
+            </div>
         </div>
     </section>
 
@@ -318,9 +329,21 @@
         <div data-role="main">
 
             <div class="pattern-profile-bottom">
-                <div class="pattern-profile-section section-description active"></div>
+                <div class="pattern-profile-section section-description active">
+
+                    <!-- 아이콘 변경하기 -->
+                    <div class="floater top right" style="width:8%;">
+                        <a href="#" class="js-pattern-delete">
+                            <img class="icon" src="images/icons/map-icon.png" style="width: 100%;">
+                        </a>
+                    </div>
+
+                </div>
                 <div class="pattern-profile-section section-map">
                     <div class="map"></div>
+                    <div class="floater bottom right">
+                        <a href="#choose-location-page" class="btn-circle js-choose-pattern-for-location">&plus;</a>
+                    </div>
                 </div>
                     
             </div>
@@ -329,8 +352,8 @@
                 <div class="nav-link active">Photo</div>
                 <div class="nav-link">Map</div>
             </div>
-
-            <div class="pattern-profile-top" style="display: flex; justify-content: space-between; align-items: center;" ></div>
+            <div class="pattern-profile-top" style="display: flex; justify-content: space-between; align-items: center;">
+            </div>
         </div>
     </section>
 
@@ -342,7 +365,7 @@
             <ul>
                 <li><a href="#" data-rel="back">Back</a></li>
                 <li class="flex-stretch"></li>
-                <li><a href="#" data-rel="back" class="js-submit-pattern-edit-form">Submit</a></li>
+                <li><a href="#" class="js-submit-pattern-edit-form">Submit</a></li>
             </ul>
         </header>
         <form data-role="main" data-ajax="false" id="pattern-edit-form" class="padded display-flex flex-column full overscroll">
@@ -358,12 +381,30 @@
 
 
 
-
+    <!-- PATTERN ADD PAGE -->
+    <section data-role="page" id="pattern-add-page">
+        <header data-role="header">
+            <h1>Add a Pattern</h1>
+            <ul>
+                <li><a href="#" data-rel="back">Back</a></li>
+                <li class="flex-stretch"></li>
+                <li><a href="#" class="js-submit-pattern-add-form">Submit</a></li>
+            </ul>
+        </header>
+        <form data-role="main" data-ajax="false" id="pattern-add-form" class="padded display-flex flex-column full overscroll">         
+            <div class="body"></div>
+            <div class="flex-stretch"></div> 
+            <!-- <div class="form-control">
+                <input class="form-button" type="submit" data-role="none" value="Submit">
+            </div> -->
+        </form>
+    </section>
 
 
 
 
     <!--  =========================== USER PROFILE ===========================  -->
+
     <section data-role="page" id="user-profile-page">
         <header data-role="header">
             <h1>User Profile</h1>
@@ -404,6 +445,7 @@
                         <h3>User Profile</h3>
                         <p class="line" style="margin-bottom: 1.5em;"></p>
                         <div><a href="#user-edit-page" > Edit Profile</a></div>
+                        <div><a href="#password-edit-page" > Edit Password</a></div>
                         <div><a href="#" class="js-logout"> Log out</a></div>   
                     </div>                  
                 </div>
@@ -419,7 +461,7 @@
             <ul>
                 <li><a href="#" data-rel="back">Back</a></li>
                 <li class="flex-stretch"></li>
-                <li><a href="#" data-rel="back" class="js-submit-user-edit-form">Submit</a></li>
+                <li><a href="#" class="js-submit-user-edit-form">Submit</a></li>
             </ul>
         </header>
         <form data-role="main" data-ajax="false" id="user-edit-form" class="padded display-flex flex-column full overscroll">
@@ -430,6 +472,32 @@
             <!-- <div class="form-control">
                 <input class="form-button" type="submit" data-role="none" value="Submit">
             </div> -->
+        </form>
+    </section>
+
+
+    <!-- PASSWORD EDIT PAGE -->
+    <section data-role="page" id="password-edit-page">
+        <header data-role="header">
+            <h1>Edit Password</h1>
+            <ul>
+                <li><a href="#" data-rel="back">Back</a></li>
+                <li class="flex-stretch"></li>
+                <li><a href="#" class="js-submit-password-edit-form">Submit</a></li>
+            </ul>
+        </header>
+        <form data-role="main" data-ajax="false" id="password-edit-form" class="padded display-flex flex-column full overscroll">
+                <!--part.js "makeEditPasswordForm"-->
+            <div class="body">
+                <div class="form-control">
+                    <label class="form-label" for="password-edit-name">New Password</label>
+                    <input class="form-input" type="password" id="password-edit-password" data-role="none" placeholder="Type a new password">
+                </div>
+                <div class="form-control">
+                    <label class="form-label" for="password-edit-confirm">Confirm New Password</label>
+                    <input class="form-input" type="password" id="password-edit-confirm" data-role="none" placeholder="Type the same password">
+                </div>
+            </div>
         </form>
     </section>
 

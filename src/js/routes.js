@@ -115,12 +115,18 @@ export const PatternProfilePage = async() => {
     makeMarkers(map_el,locations);
 }
 
-
 export const ChooseLocationPage = async() => {
     let map_el = await makeMap("#choose-location-page .map");
     makeMarkers(map_el,[]);
-
+    map_el.data("map").addListener("click",function(e){
+        console.log(e)
+        $("#location-lat").val(e.latLng.lat());
+        $("#location-lng").val(e.latLng.lng());
+        makeMarkers(map_el,[e.latLng]);
+    })
 }
+
+
 
 
 export const UserEditPage = async() => {
@@ -132,6 +138,21 @@ export const UserEditPage = async() => {
 
     $("#user-edit-page .body").html(makeEditUserForm(user));
 }
+
+
+export const PatternAddPage = async() => {
+
+    $("#pattern-add-page .body").html(makeEditPatternForm({
+        pattern:{
+            name:'',
+            type:'',
+            color:'',
+            description:'',
+        },
+        namespace:'pattern-add'
+    }));
+}
+
 
 export const PatternEditPage = async() => {
     let {result:patterns} = await query({

@@ -102,7 +102,164 @@ function makeStatement($data){ // M08 - 14:00
 
 
 
-       
+    /* INSERT M12 */
+
+        case "insert_user":
+            $result = makeQuery($conn, "SELECT `id`
+            FROM `track_202290_users`
+            WHERE `username`=? OR `email`=?
+            ", [$params[0],$params[1]]);
+            if (count($result['result']) > 0)
+                return ["error"=>"Username or Email already exists"];
+
+            $result = makeQuery($conn, "INSERT INTO
+            `track_202290_users`
+            (
+                `username`,
+                `email`,
+                `password`,
+                `img`,
+                `date_create`
+            )
+            VALUES
+            (
+                ?,
+                ?,
+                md5(?),
+                'https://via.placeholder.com/400/?text=USER',
+                NOW()
+            )
+            ", $params, false);
+
+            if (isset($result['error'])) return $result;
+            return ["id" => $conn->lastInsertId()];
+
+        case "insert_pattern":
+            $result = makeQuery($conn, "INSERT INTO
+            `track_202290_patterns`
+            (
+                `user_id`,
+                `name`,
+                `type`,
+                `color`,
+                `description`,
+                `img`,
+                `date_create`
+            )
+            VALUES
+            (
+                ?,
+                ?,
+                ?,
+                ?,
+                ?,
+                'https://via.placeholder.com/400/?text=PATTERN',
+                NOW()
+            )
+            ", $params, false);
+
+            if (isset($result['error'])) return $result;
+            return ["result"=>"Success"];
+
+        case "insert_location":
+            $result = makeQuery($conn, "INSERT INTO
+            `track_202290_locations`
+            (
+                `pattern_id`,
+                `lat`,
+                `lng`,
+                `description`,
+                `photo`,
+                `icon`,
+                `date_create`
+            )
+            VALUES
+            (
+                ?,
+                ?,
+                ?,
+                ?,
+                'https://via.placeholder.com/400/?text=PHOTO',
+                'https://via.placeholder.com/400/?text=ICON',
+                NOW()
+            )
+            ", $params, false);
+
+            if (isset($result['error'])) return $result;
+            return ["result"=>"Success"];
+
+
+
+
+        
+    /* UPDATE  M12 */
+        case "update_user":
+            $result = makeQuery($conn, "UPDATE
+            `track_202290_users`
+            SET
+                `name` = ?,
+                `username` = ?,
+                `email` = ?
+            WHERE `id` = ?
+            ", $params, false);
+
+            if (isset($result['error'])) return $result;
+            return ["result"=>"Success"];
+
+        case "update_password":
+            $result = makeQuery($conn, "UPDATE
+            `track_202290_users`
+            SET
+                `password` = md5(?)
+            WHERE `id` = ?
+            ", $params, false);
+
+            if (isset($result['error'])) return $result;
+            return ["result"=>"Success"];    
+
+        case "update_pattern":
+            $result = makeQuery($conn, "UPDATE
+            `track_202290_patterns`
+            SET
+                `name` = ?,
+                `type` = ?,
+                `color` = ?,
+                `description` = ?
+            WHERE `id` = ?
+            ", $params, false);
+
+            if (isset($result['error'])) return $result;
+            return ["result"=>"Success"];           
+
+
+
+
+    /* DELETE  M12 */
+
+    case "delete_pattern":
+        $result = makeQuery($conn, "DELETE FROM
+        `track_202290_patterns`
+        WHERE `id` = ?
+        ", $params, false);
+
+        if (isset($result['error'])) return $result;
+        return ["result"=>"Success"]; 
+
+    case "delete_location":
+        $result = makeQuery($conn, "DELETE FROM
+        `track_202290_locations`
+        WHERE `id` = ?
+        ", $params, false);
+
+        if (isset($result['error'])) return $result;
+        return ["result"=>"Success"]; 
+
+
+    
+        
+
+
+
         case "check_signin":
             return makeQuery($conn, "SELECT `id` FROM `track_202290_users` WHERE `username`=? AND `password` = md5(?)", $params);
 
