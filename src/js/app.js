@@ -1,6 +1,6 @@
-import { checkLocationAddForm, checkPasswordEditForm, checkPatternAddForm, checkPatternDeleteForm, checkPatternEditForm, checkSignupForm, checkUserEditForm } from "./forms.js";
-import { query } from "./function.js";
-import { ChooseLocationPage, ListPage, MapPage, PatternAddPage, PatternEditPage, PatternProfilePage, UserEditPage, UserProfilePage } from "./routes.js";
+import { checkLocationAddForm, checkPasswordEditForm, checkPatternAddForm, checkPatternDeleteForm, checkPatternEditForm, checkSignupForm, checkUserEditForm, checkUserEditPhotoForm } from "./forms.js";
+import { checkUpload, query } from "./function.js";
+import { ChooseLocationPage, ListPage, MapPage, PatternAddPage, PatternEditPage, PatternProfilePage, UserEditPage, UserEditPhotoPage, UserProfilePage } from "./routes.js";
 import { checkSigninForm, checkUserId } from "./signin.js";
 
 // Document Ready
@@ -20,6 +20,7 @@ $(() => {
 
             case "user-profile-page": UserProfilePage(); break;
             case "user-edit-page" : UserEditPage(); break;
+            case "user-edit-photo-page" : UserEditPhotoPage(); break;
             
 
             case "pattern-profile-page": PatternProfilePage(); break;
@@ -37,23 +38,30 @@ $(() => {
         e.preventDefault();
         checkSigninForm();
     })
-
     .on("submit", "#signup-form", function(e) {
         e.preventDefault();
         checkSignupForm();
     })
-
-    
-
     .on("submit", "#user-edit-form", function(e) {
         e.preventDefault();
         checkUserEditForm();
     })
-
-
     .on("submit", "#pattern-edit-form", function(e) {
         e.preventDefault();
         checkPatternEditForm();
+    })
+
+
+    .on("change", ".imagepicker input", function(e) {
+        checkUpload(this.files[0])
+        .then((d) => {
+            console.log(d);
+            let filename = `uploads/${d.result}`;
+            $(this).parent().prev().val(filename);
+            $(this).parent().css({
+                "background-image": `url('${filename}')`
+            }).addClass("picked");
+        })
     })
 
 
@@ -86,14 +94,20 @@ $(() => {
     .on("click", ".js-submit-user-edit-form", function(e) {
         checkUserEditForm();
     })
+    .on("click", ".js-submit-user-edit-photo-form", function(e) {
+        checkUserEditPhotoForm();
+    })
     .on("click", ".js-submit-password-edit-form", function(e) {
         checkPasswordEditForm();
+    })
+    .on("click", ".js-submit-pattern-edit-form", function(e) {
+        checkPatternEditForm();
     })
     .on("click", ".js-submit-pattern-add-form", function(e) {
         checkPatternAddForm();
     })
     .on("click", ".js-submit-pattern-delete-form", function(e) {
-        checkPatternDeleteForm();
+    checkPatternDeleteForm();
     })
     .on("click", ".js-submit-location-add-form", function(e) {
         checkLocationAddForm();

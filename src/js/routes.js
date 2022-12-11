@@ -115,6 +115,10 @@ export const PatternProfilePage = async() => {
     makeMarkers(map_el,locations);
 }
 
+
+
+
+
 export const ChooseLocationPage = async() => {
     let map_el = await makeMap("#choose-location-page .map");
     makeMarkers(map_el,[]);
@@ -122,7 +126,11 @@ export const ChooseLocationPage = async() => {
         console.log(e)
         $("#location-lat").val(e.latLng.lat());
         $("#location-lng").val(e.latLng.lng());
-        makeMarkers(map_el,[e.latLng]);
+        makeMarkers(map_el,[{
+            lat:e.latLng.lat(),
+            lng:e.latLng.lng(),
+            icon:'images/icons/map-icon.png'
+        }]);
     })
 }
 
@@ -140,6 +148,19 @@ export const UserEditPage = async() => {
 }
 
 
+export const UserEditPhotoPage = async() => {
+    let {result:users} = await query({
+        type:"user_by_id",
+        params:[sessionStorage.userId]
+    });
+    let [user] = users;
+
+    $("#user-edit-photo-page .body").css({
+        "background-image": `url('${user.img}')`
+    });
+}
+
+
 export const PatternAddPage = async() => {
 
     $("#pattern-add-page .body").html(makeEditPatternForm({
@@ -152,6 +173,8 @@ export const PatternAddPage = async() => {
         namespace:'pattern-add'
     }));
 }
+
+
 
 
 export const PatternEditPage = async() => {

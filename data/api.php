@@ -39,6 +39,22 @@ function makeQuery($conn,$prep,$params,$makeResults=true) {
     }
 }
 
+
+function makeUpload($file, $folder) {
+    $filename = microtime(true) . "_" . $_FILES[$file]['name'];
+
+    if (@move_uploaded_file(
+        $_FILES[$file]['tmp_name'],
+        $folder.$filename
+    )) return ["result"=>$filename];
+    else return [
+        "error"=>"File Upload Failed",
+        "filename"=>$filename
+    ];
+}
+
+
+
 function makeStatement($data){ // M08 - 14:00
     $conn = makeConn();
     $type = @$data->type;
@@ -153,7 +169,7 @@ function makeStatement($data){ // M08 - 14:00
                 ?,
                 ?,
                 ?,
-                'https://via.placeholder.com/400/?text=PATTERN',
+                ?,
                 NOW()
             )
             ", $params, false);
@@ -224,14 +240,29 @@ function makeStatement($data){ // M08 - 14:00
                 `name` = ?,
                 `type` = ?,
                 `color` = ?,
-                `description` = ?
+                `description` = ?,
+                `img` = ?
             WHERE `id` = ?
             ", $params, false);
 
             if (isset($result['error'])) return $result;
             return ["result"=>"Success"];           
 
+    
+    /* UPLOAD  M13 */
 
+        case "update_user_photo":
+        $result = makeQuery($conn, "UPDATE
+        `track_202290_users`
+        SET `img` = ?
+        WHERE `id` = ?
+        ", $params, false);
+
+        if (isset($result['error'])) return $result;
+        return ["result"=>"Success"];
+
+
+        
 
 
     /* DELETE  M12 */
@@ -255,19 +286,19 @@ function makeStatement($data){ // M08 - 14:00
         return ["result"=>"Success"]; 
 
 
-    
-        
-
-
-
         case "check_signin":
             return makeQuery($conn, "SELECT `id` FROM `track_202290_users` WHERE `username`=? AND `password` = md5(?)", $params);
 
-            default:
-                return ["error"=>"No Matched Type"];
+        default:
+            return ["error"=>"No Matched Type"];
     }
 }
 
+
+if (!empty($_FILES)) {
+    $result = makeUpload("image","../uploads/");
+    die(json_encode($result));
+}
 
 $data = json_decode(file_get_Contents("php://input"));  // M08 - 13:55
 

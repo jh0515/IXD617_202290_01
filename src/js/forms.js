@@ -79,6 +79,25 @@ export const checkPasswordEditForm = () => {
     })
 }
 
+export const checkUserEditPhotoForm = () => {
+    let photo = $("#user-edit-photo-image").val();
+    
+    query({
+        type: 'update_user_photo',
+        params: [
+            photo,
+            sessionStorage.userId
+        ]
+    }).then((data)=>{
+        if (data.error) {
+            throw(data.error);
+        } else {
+            window.history.go(-1);
+        }
+    })
+}
+
+
 
 
 export const checkPatternAddForm = () => {
@@ -86,6 +105,7 @@ export const checkPatternAddForm = () => {
     let type = $("#pattern-add-type").val();
     let color = $("#pattern-add-color").val();
     let description = $("#pattern-add-description").val();
+    let image = $("#pattern-add-photo-image").val();
 
     query({
         type: 'insert_pattern',
@@ -94,13 +114,15 @@ export const checkPatternAddForm = () => {
             name,
             type,
             color,
-            description
+            description,
+            image
         ]
     }).then((data)=>{
         if (data.error) {
             throw(data.error);
         } else {
-           window.history.back();
+           window.history.back(); 
+           //window.history.forward(); 
     
         }
     })
@@ -108,11 +130,13 @@ export const checkPatternAddForm = () => {
 }
 
 
+
 export const checkPatternEditForm = () => {
     let name = $("#pattern-edit-name").val();
     let type = $("#pattern-edit-type").val();
     let color = $("#pattern-edit-color").val();
     let description = $("#pattern-edit-description").val();
+    let image = $("#pattern-edit-photo-image").val();
 
     query({
         type: 'update_pattern',
@@ -121,6 +145,7 @@ export const checkPatternEditForm = () => {
             type,
             color,
             description,
+            image,
             sessionStorage.patternId
         ]
     }).then((data)=>{

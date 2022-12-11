@@ -12,39 +12,29 @@ export const makePatternlist = templater(({id,name,type,color,img})=>`
     </a>
 `)
 
-
+//<div class="user-profile-image" style="height:50vh;"><a href="#user-edit-photo-page"><img style="width:100%; height:100%;" src="${img}"></a></div>
 export const makeUserProfilePage = ({name,email,username,img})=>`
 <div>
-    <div class="user-profile-image" style="height:50vh;"><img style="width:100%; height:100%;" src="${img}"></div>
+    <div class="user-profile-image"><a href="#user-edit-photo-page"><img src="${img}"></a></div>
     <div class="user-profile-body" style="text-align:center;">
         <h1 class="user-profile-name">${name}</h1>
         <div class="user-profile-breed">@${username}</div>
         <div class="user-profile-email">${email}</div>
     </div>
-    
-    <div style="display:flex; justify-content:space-around; margin-top: 1.5em;">
-        <img style="width:100px; height: 100px; border-radius:50%;" src="${img}">
-        <img style="width:100px; height: 100px; border-radius:50%;" src="${img}">
-        <img style="width:100px; height: 100px; border-radius:50%;" src="${img}">
-    </div>
-
 </div>
 `
 
 // PATTERN PROFILE PAGE 
 export const makePatternProfileDescription = ({img,name,type,color,description})=>`
 
-    <div class="pattern-img-small">
-        <div style="background-image: url(${img});"></div>    
-    </div>
-    <div style="width:50%;">
-        <h2>${name}</h2>
-        <div>${type}</div>
-        <div>${color}</div>
-    </div>
-    
-
-
+    <div style="padding:0 1.5em; display:flex;">
+        <div style="margin-right: 1.2em;">
+            <h2 style="margin:0;">${name}</h2>
+            <div>${type}</div>
+            <div>${color}</div>
+        </div>
+        <div>${description}</div>
+    </div> 
 `
 
 export const makePatternMapDescription = ({name,type,color,img}) => {
@@ -94,6 +84,14 @@ const FormControlTextarea = ({namespace,name,displayname,placeholder,value}) => 
 
 export const makeEditPatternForm = ({pattern,namespace}) => {
     return `
+    <div class="form-control">
+        <input type="hidden" id="${namespace}-photo-image" value="${pattern.img??""}">
+        <label class="imagepicker replace thumbnail ${pattern.img?"picked":""}" style="background-image:url('${pattern.img}')">
+            <input type="file" id="${namespace}-photo-input" data-role="none" class="hidden">
+        </label>
+    </div>
+
+
     ${FormControlInput({
         namespace,
         name: "name",
