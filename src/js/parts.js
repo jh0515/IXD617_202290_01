@@ -15,11 +15,12 @@ export const makePatternlist = templater(({id,name,type,color,img})=>`
 //<div class="user-profile-image" style="height:50vh;"><a href="#user-edit-photo-page"><img style="width:100%; height:100%;" src="${img}"></a></div>
 export const makeUserProfilePage = ({name,email,username,img})=>`
 <div>
-    <div class="user-profile-image"><a href="#user-edit-photo-page"><img src="${img}"></a></div>
+    <div class="user-profile-image" style="background-color:#e96363;"><a href="#user-edit-photo-page"><img src="${img}"></a></div>
     <div class="user-profile-body" style="text-align:center;">
         <h1 class="user-profile-name">${name}</h1>
-        <div class="user-profile-breed">@${username}</div>
-        <div class="user-profile-email">${email}</div>
+        <p style="width:100%; border: 1px solid #ececec;"></p>
+        <div class="user-profile-breed" style="margin:1em 0 0.5em; color:#927171;"> Username : @${username}</div>
+        <div class="user-profile-email" style="color:#927171;">Email : ${email}</div>
     </div>
 </div>
 `
@@ -29,11 +30,12 @@ export const makePatternProfileDescription = ({img,name,type,color,description})
 
     <div style="padding:0 1.5em; display:flex;">
         <div style="margin-right: 1.2em;">
-            <h2 style="margin:0;">${name}</h2>
-            <div>${type}</div>
-            <div>${color}</div>
+            <h2 style="margin:0; color:#cc6461;">${name}</h2>
+            <p style="width:100%; border: 1px solid #ececec;"></p>
+            <div style="color:#927171;">${type}</div>
+            <div style="color:#927171;">${color}</div>
         </div>
-        <div>${description}</div>
+        <div style="color:#695050;">${description}</div>
     </div> 
 `
 
@@ -126,3 +128,31 @@ export const makeEditPatternForm = ({pattern,namespace}) => {
     `;
 }
 
+
+
+
+
+const filterList = (patterns,type) => {
+    let arr = [...(new Set(patterns.map(o=>o[type])))];
+    return templater(o=>o?`<span data-filter="${type}" data-value="${o}">${o}</span>`:'')(arr);
+}
+
+
+export const makeFilterList = (patterns) => {
+    return `
+        <span data-filter="type" data-value="">All&emsp;|</span>
+        
+        ${filterList(patterns,'type')}
+ 
+    `
+}
+
+// export const makeFilterList = (patterns) => {
+//     return `
+//         <span data-filter="type" data-value="">All</span>
+//         |
+//         ${filterList(patterns,'type')}
+//         |
+//         ${filterList(patterns,'color')}
+//     `
+// }

@@ -1,6 +1,6 @@
 import { query } from "./function.js"
 import { makeMap, makeMarkers } from "./maps.js";
-import { makeEditPatternForm, makeEditUserForm, makePatternlist, makePatternMapDescription, makePatternProfileDescription, makeUserProfilePage } from "./parts.js";
+import { makeEditPatternForm, makeEditUserForm, makeFilterList, makePatternlist, makePatternMapDescription, makePatternProfileDescription, makeUserProfilePage } from "./parts.js";
 
 //export const MapPage = async() => {}
 
@@ -80,6 +80,7 @@ export const ListPage = async() => {
     console.log(patterns)
 
     $("#list-page .patternlist").html(makePatternlist(patterns))  //M08 15:21
+    $(".filter-bar").html(makeFilterList(patterns))
 }
 
 export const UserProfilePage = async() => {

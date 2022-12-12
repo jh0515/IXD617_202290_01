@@ -98,6 +98,8 @@ p{
     z-index:1;
 }
 
+/* ==================== */
+
 [data-role="header"],
 [data-role="footer"] {
     line-height: var(--header-height);
@@ -109,6 +111,31 @@ p{
 
     z-index:2;
 }
+
+
+
+/* [data-role="header"],
+[data-role="footer"] {
+    line-height: var(--header-height);
+    height: var(--header-height);
+    position:relative;
+    overflow:hidden;
+    background-color:white;
+
+}
+[data-role="header"]:last-of-type,
+[data-role="footer"]:first-of-type {
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    z-index:2;
+}
+[data-role="header"]:not(:last-of-type),
+[data-role="footer"]:not(:first-of-type) {
+    z-index:3;
+} */
+
+
+
+
 
 [data-role="footer"] {
     height: 3.5rem;
@@ -679,7 +706,7 @@ textarea::placeholder{
 }
 .patternlist-item{
     width: 100%;
-    flex: 1 1 50%;
+    /* flex: 1 1 50%; */
     margin-bottom: 1em;
 }
 
@@ -828,21 +855,17 @@ textarea::placeholder{
 }
 
 
-
-
-
-
-
+/* Search bar - list page */
 
 #list-page header {
     display:flex;
 }
 .hotdog {
-    margin: 5px;
+    margin: 15px auto;
     line-height:var(--header-height);
-    background-color: var(--color-neutral-lighter);
+    background-color: #f8f1f1;
     border-radius: var(--header-height);
-    width: 100%;
+    width: 88%;
     display: flex;
 }
 .hotdog input {
@@ -851,11 +874,10 @@ textarea::placeholder{
     background-color: unset;
     border: unset;
     outline: unset;
-    padding: unset;
-    margin: unset;
+    padding: 9px; 
+    margin: unset; 
     vertical-align: middle;
     font: inherit;
-    padding: 0 1em;
 }
 
 
@@ -906,10 +928,11 @@ textarea::placeholder{
 
 .filter-bar {
     display:flex;
-    padding-inline: 1em;
+    padding-inline: 1.5em;
     gap: 1em;
     overflow:auto;
 }
 .filter-bar span {
     font-weight:bold;
+    padding: 0.5em 0;
 }

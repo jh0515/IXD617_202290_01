@@ -1,4 +1,5 @@
 import { query } from "./function.js";
+import { makePatternlist } from "./parts.js";
 
 export const checkSignupForm = () => {
     let username = $("#signup-username").val();
@@ -195,4 +196,31 @@ export const checkLocationAddForm = () => {
 
 
 
+
+export const checkListSearchForm = (search) => {
+    query({
+        type:"search_patterns",
+        params:[`%${search}%`,sessionStorage.userId]
+    }).then((data)=>{
+        if (data.error) {
+            throw(data.error);
+        } else {
+            let {result} = data;
+            $("#list-page .patternlist").html(makePatternlist(result))
+        }
+    })
+}
+export const checkListFilter = (filter,value) => {
+    query({
+        type:"filter_patterns",
+        params:[filter,value,sessionStorage.userId]
+    }).then((data)=>{
+        if (data.error) {
+            throw(data.error);
+        } else {
+            let {result} = data;
+            $("#list-page .patternlist").html(makePatternlist(result));
+        }
+    })
+}
 

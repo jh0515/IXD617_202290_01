@@ -1,4 +1,4 @@
-import { checkLocationAddForm, checkPasswordEditForm, checkPatternAddForm, checkPatternDeleteForm, checkPatternEditForm, checkSignupForm, checkUserEditForm, checkUserEditPhotoForm } from "./forms.js";
+import { checkListFilter, checkListSearchForm, checkLocationAddForm, checkPasswordEditForm, checkPatternAddForm, checkPatternDeleteForm, checkPatternEditForm, checkSignupForm, checkUserEditForm, checkUserEditPhotoForm } from "./forms.js";
 import { checkUpload, query } from "./function.js";
 import { ChooseLocationPage, ListPage, MapPage, PatternAddPage, PatternEditPage, PatternProfilePage, UserEditPage, UserEditPhotoPage, UserProfilePage } from "./routes.js";
 import { checkSigninForm, checkUserId } from "./signin.js";
@@ -51,6 +51,21 @@ $(() => {
         checkPatternEditForm();
     })
 
+    .on("submit", "#list-search-form", function(e) {
+        e.preventDefault();
+        let search = $(this).find("input").val();
+        checkListSearchForm(search);
+    })
+
+    .on("click", "[data-filter]", function(e){
+        let {filter,value} = $(this).data();
+        if (value!=="") checkListFilter(filter,value);
+        else ListPage();
+    })
+
+
+
+
 
     .on("change", ".imagepicker input", function(e) {
         checkUpload(this.files[0])
@@ -63,6 +78,9 @@ $(() => {
             }).addClass("picked");
         })
     })
+
+
+
 
 
     .on("click", ".js-logout", function(e) {

@@ -116,6 +116,26 @@ function makeStatement($data){ // M08 - 14:00
             ORDER BY l.pattern_id, l.date_create DESC
             ", $params);
 
+           
+    /* SERACH M14 */
+
+    case "search_patterns":
+        return makeQuery($conn, "SELECT *
+        FROM `track_202290_patterns`
+        WHERE 
+            (`name` LIKE ? OR
+            `type` LIKE ? OR
+            `color` LIKE ?)AND
+            `user_id` = ?
+        ", [$params[0],$params[0],$params[0],$params[1]]);
+
+    case "filter_patterns":
+        return makeQuery($conn, "SELECT *
+        FROM `track_202290_patterns`
+        WHERE 
+            `$params[0]` = ? AND
+            `user_id` = ?
+        ", [$params[1],$params[2]]);
 
 
     /* INSERT M12 */

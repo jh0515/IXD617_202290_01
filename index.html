@@ -89,7 +89,7 @@
                 </h1>
                 <div>
                     <a class="onboarding-no" href="#map-page">NO</a>
-                    <a class="onboarding-yes" href="#choose-pattern-page">YES</a>
+                    <a class="onboarding-yes" href="#pattern-add-page">YES</a>
                     
                 </div>  
             </div>
@@ -195,7 +195,22 @@
     <section data-role="page" id="list-page">
         <header data-role="header">
             <h1> Pattern List</h1>
+            <!-- <form id="list-search-form" class="hotdog" data-ajax="false">
+                <input id="list-search-input" type="search" data-role="none" placeholder="Search">
+            </form> -->
         </header>
+        <!-- <header data-role="header" class="filter-bar"></header> -->
+        <div>
+            <form id="list-search-form" class="hotdog" data-ajax="false">
+                <input id="list-search-input" type="search" data-role="none" placeholder="&ensp;Search">
+            </form>
+            <div class="filter-bar"></div>
+
+        </div>
+
+
+
+
         <div data-role="main">
             <div class="patternlist"></div>
             <div class="floater bottom right">
@@ -378,31 +393,10 @@
         </form>
     </section>
 
-    <!-- PATTERN ADD PAGE2 -->
-    <section data-role="page" id="pattern-add-page2">
-        <header data-role="header">
-            <h1>Add a Pattern</h1>
-            <ul>
-                <li><a href="#" data-rel="back">Back</a></li>
-                <li class="flex-stretch"></li>
-                <!-- <li><a href="#" class="js-submit-pattern-add-form">Submit</a></li> -->
-                <li><a href="#choose-location-page3">Next</a></li>
-            </ul>
-        </header>
-        <form data-role="main" data-ajax="false" id="pattern-add-form2" class="padded display-flex flex-column full overscroll">         
-            <div class="body"></div>
-            <div class="flex-stretch"></div> 
-            <!-- <div class="form-control">
-                <input class="form-button" type="submit" data-role="none" value="Submit">
-            </div> -->
-        </form>
-    </section>
-
 
 
 
 <!--  USER PROFILE  -->
-
     <section data-role="page" id="user-profile-page">
         <header data-role="header">
             <h1>User Profile</h1>
@@ -439,12 +433,12 @@
             <div class="modal-drawer bottom">
                
                 <div class="modal-body">
-                    <div class="user-progile-more">
-                        <h3>User Profile</h3>
+                    <div class="user-profile-more">
+                        <h3 style="font-size: 1.3em;">User Profile</h3>
                         <p class="line" style="margin-bottom: 1.5em;"></p>
                         <div><a href="#user-edit-page" > Edit Profile</a></div>
                         <div><a href="#password-edit-page" > Edit Password</a></div>
-                        <div><a href="#" class="js-logout"> Log out</a></div>   
+                        <div><a href="#" class="js-logout" style="color: #e6c7c7;"> Log out</a></div>   
                     </div>                  
                 </div>
             </div>
