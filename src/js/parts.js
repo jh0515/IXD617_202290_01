@@ -16,10 +16,10 @@ export const makePatternlist = templater(({id,name,type,color,img})=>`
 export const makeUserProfilePage = ({name,email,username,img})=>`
 <div>
     <div class="user-profile-image" style="background-color:#e96363;"><a href="#user-edit-photo-page"><img src="${img}"></a></div>
-    <div class="user-profile-body" style="text-align:center;">
+    <div class="user-profile-body" style="text-align:center; font-weight:600;">
         <h1 class="user-profile-name">${name}</h1>
         <p style="width:100%; border: 1px solid #ececec;"></p>
-        <div class="user-profile-breed" style="margin:1em 0 0.5em; color:#927171;"> Username : @${username}</div>
+        <div class="user-profile-breed" style="margin:1em auto 0.5em; color:#927171;"> Username : @${username}</div>
         <div class="user-profile-email" style="color:#927171;">Email : ${email}</div>
     </div>
 </div>

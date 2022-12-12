@@ -886,10 +886,10 @@ textarea::placeholder{
 .thumbnail {
     position:relative;
     display:inline-block;
-    width:6em;
-    height:6em;
+    width: 95%;
+    height: 34vh;
     border-radius:0.6em;
-    border:0.25em solid white;
+    border:0.5em solid white;
     vertical-align:middle;
     box-shadow:0 0.15em 0.35em 0.1em rgba(0,0,0,0.2);
     margin:0.5em;
@@ -922,16 +922,13 @@ textarea::placeholder{
   }
 
 
-
-
-
-
 .filter-bar {
     display:flex;
     padding-inline: 1.5em;
     gap: 1em;
     overflow:auto;
     color: #927171;
+    margin-bottom: 0.7em;
 }
 .filter-bar span {
     font-weight:bold;
