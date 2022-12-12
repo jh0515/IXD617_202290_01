@@ -931,6 +931,7 @@ textarea::placeholder{
     padding-inline: 1.5em;
     gap: 1em;
     overflow:auto;
+    color: #927171;
 }
 .filter-bar span {
     font-weight:bold;
